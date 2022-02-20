@@ -1,0 +1,21 @@
+p
+{
+	font-family: Comic Sans MS;
+	color: #73B4FF;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+a
+{
+	font-family: Comic Sans MS;
+	color: #73B4FF;
+	font-size: 25px;
+	display: inline;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: #3078CA;
+}
