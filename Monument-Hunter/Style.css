@@ -19,3 +19,33 @@ a:hover
 {
 	color: #3078CA;
 }
+
+#bg
+{
+	padding-left: 64%;
+	
+}
+
+#fr
+{
+	padding-left: 30%;
+	padding-top: 6.5%;
+}
+
+#uk
+{
+	padding-left: 26.5%;
+	padding-top: 3.5%;
+}
+
+#it
+{
+	padding-left: 43%;
+}
+
+#ru
+{
+	padding-left: 85%;
+	padding-top: 15%;
+}
+
