@@ -1,29 +1,32 @@
 $(document).ready( _ => {
 
-	var level = 0; //declare here
+	var visitedLevel = [];
+
+	
 
 	$('#bg').on('click', _ => {
-		$(this).css('font-color', 'red'); // Fix this line alter!
-		level = 1;
+		visitedLevel[0] = true;
+		console.log(visitedLevel[0]);
 	});
+
+	if (visitedLevel.indexOf( 0 ) != -1) {
+		$('#bg').css('color', 'red');		
+		console.log(visitedLevel[0]);
+	}
 	
 	$('#fr').on('click', _ => {
-		$(this).css('font-color', 'red'); // Fix this line later!
 		level = 2;
 	});
 
 	$('#uk').on('click', _ => {
-		$(this).css('font-color', 'red'); // Fix this line later!
 		level = 3;
 	});
 
 	$('#it').on('click', _ => {
-		$(this).css('font-color', 'red'); // Fix this line later!
 		level = 4;
 	});
 
 	$('#ru').on('click', _ => {
-		$(this).css('font-color', 'red'); // Fix this line later!
 		level = 5;
 	});
 	

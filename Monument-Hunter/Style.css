@@ -4,48 +4,48 @@ p
 	color: #73B4FF;
 	font-size: 25px;
 	font-weight: bold;
+	position: absolute;
 }
 
 a
 {
-	font-family: Comic Sans MS;
-	color: #73B4FF;
-	font-size: 25px;
-	display: inline;
 	text-decoration: none;
 }
 
-a:hover
+p:hover
 {
 	color: #3078CA;
 }
 
+
+
 #bg
 {
-	padding-left: 64%;
-	
+	margin-left: 63.3%;
+	margin-top: 40.7%;
 }
 
 #fr
 {
-	padding-left: 30%;
-	padding-top: 6.5%;
+	margin-left: 30%;
+	margin-top: 34%;
 }
 
 #uk
 {
-	padding-left: 26.5%;
-	padding-top: 3.5%;
+	margin-left: 26.5%;
+	margin-top: 23%;
 }
 
 #it
 {
-	padding-left: 43%;
+	margin-left: 42%;
+	margin-top: 36.5%;
 }
 
 #ru
 {
-	padding-left: 85%;
-	padding-top: 15%;
+	margin-left: 85%;
+	margin-top: 15%;
 }
 
