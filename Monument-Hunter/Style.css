@@ -1,10 +1,19 @@
-p
+button
 {
 	font-family: Comic Sans MS;
 	color: #73B4FF;
-	font-size: 25px;
+	font-size: 2.3vh;
 	font-weight: bold;
 	position: absolute;
+	border-width: 0.5vh;
+	background-color: transparent;
+	border-radius: 50%;
+	border-color: #73B4FF;
+}
+
+body
+{
+	margin: 0px;
 }
 
 a
@@ -12,40 +21,67 @@ a
 	text-decoration: none;
 }
 
-p:hover
+button:hover
 {
+	border-color: #5096DE;
 	color: #3078CA;
 }
 
+.failed
+{
+	border-color: #F99494;
+	color: #FA8181;
+}
 
+.failed:hover
+{
+	border-color: #EF7474;
+	color: #F46767;
+}
+
+.completed
+{
+	border-width: 0px;
+	color: #8DFC7E;
+}
+
+.completed:hover
+{
+	color: #8DFC7E;
+}
+
+#restart
+{
+	margin-top: 30%;
+}
 
 #bg
 {
-	margin-left: 63.3%;
-	margin-top: 40.7%;
+	margin-left: 63.5%;
+	margin-top: 41.2%;
 }
 
 #fr
 {
-	margin-left: 30%;
+	margin-left: 30.5%;
 	margin-top: 34%;
 }
 
 #uk
 {
-	margin-left: 26.5%;
-	margin-top: 23%;
+	margin-left: 26.7%;
+	margin-top: 23.5%;
 }
 
 #it
 {
-	margin-left: 42%;
-	margin-top: 36.5%;
+	margin-left: 42.3%;
+	margin-top: 36.8%;
 }
 
 #ru
 {
 	margin-left: 85%;
-	margin-top: 15%;
+	margin-top: 16%;
 }
 
