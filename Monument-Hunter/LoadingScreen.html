@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<a href="MainMenu.html"><div></div></a>
+
+<!-- All tags should be above this! -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- All jQuery dependant files should be under this (all js's)! -->
+
+	<script>	
+		$('.div').on('click' , _ => {
+			let lvl = [0,0,0,0,0,0];
+			// lvl[0] = current level (0 = world map; 1 = bg; 2 = fr; 3 = uk; 4 = it; 5 = ru)
+			// lvl[1-5] = level status (0 = unvisited (blue); 1-5 = failed 1-5 times (red); 6 = completed (green))
+			localStorage.setItem("lvl", JSON.stringify(lvl));
+		});
+	</script>
+
+</body>
+</html>

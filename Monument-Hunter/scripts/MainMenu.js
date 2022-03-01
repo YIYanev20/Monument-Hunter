@@ -1,18 +1,19 @@
 $(document).ready( _ => {
 
-	let lvl = [0,0,0,0,0,0];
-// lvl[0] = current level (0 = world map; 1 = bg; 2 = fr; 3 = uk; 4 = it; 5 = ru)
-// lvl[1-5] = level status (0 = unvisited (blue); 1-5 = failed 1-5 times (red); 6 = completed (green))
+let nivo = JSON.parse(localStorage.lvl);
+console.log(nivo);
 
-if (lvl == [0,0,0,0,0,0]){
-	$('#continue').hide();
+if (nivo[1] == 0 && nivo[2] == 0 && nivo[3] == 0 && nivo[4] == 0 && nivo[5] == 0) {
+	$('#continue').addClass('disabled').prop('disabled', true);
+}
+else {
+	$('#continue').removeClass('disabled');
 }
 
 $('#restart').on('click' , _ => {
+	let lvl = [0,0,0,0,0,0];
 	localStorage.setItem("lvl", JSON.stringify(lvl));
 	console.log(lvl);
 });
-
-console.log(lvl);
 
 });

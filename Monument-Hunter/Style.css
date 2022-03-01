@@ -50,9 +50,26 @@ button:hover
 	color: #8DFC7E;
 }
 
+.disabled
+{
+	border-width: 0px;
+	color: #3078CA;
+}
+
+.disabled:hover
+{
+	color: #3078CA;
+}
+
+div
+{
+	width: 100vw;
+	height: 100vh;
+}
+
 #restart
 {
-	margin-top: 30%;
+	margin-top: 15%;
 }
 
 #bg

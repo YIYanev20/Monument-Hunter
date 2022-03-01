@@ -81,13 +81,6 @@ else if (level[5] > 5) {
 $('#update').on('click', _ => {
 	let lvl = level;
 	localStorage.setItem("lvl", JSON.stringify(lvl));
-	console.log(lvl);
 });
-	
-
-
-
-
-
 
 });
