@@ -1,9 +1,11 @@
 $(document).ready( _ => {
 
 let level = JSON.parse(localStorage.lvl);
+level[0] = 0;
 console.log(level);
 
 $('#bg').on('click', _ => {
+	level[0] = 1;
 	if (level[1] < 5) {
 		level[1] = level[1] + 1;
 	}
@@ -19,6 +21,7 @@ else if (level[1] > 5) {
 
 
 $('#fr').on('click', _ => {
+	level[0] = 2;
 	if (level[2] < 5) {
 		level[2] = level[2] + 1;
 	}
@@ -34,6 +37,7 @@ else if (level[2] > 5) {
 
 
 $('#uk').on('click', _ => {
+	level[0] = 3;
 	if (level[3] < 5) {
 		level[3] = level[3] + 1;
 	}
@@ -49,6 +53,7 @@ else if (level[3] > 5) {
 
 
 $('#it').on('click', _ => {
+	level[0] = 4;
 	if (level[4] < 5) {
 		level[4] = level[4] + 1;
 	}
@@ -64,6 +69,7 @@ else if (level[4] > 5) {
 
 
 $('#ru').on('click', _ => {
+	level[0] = 5;
 	if (level[5] < 5) {
 		level[5] = level[5] + 1;
 	}
