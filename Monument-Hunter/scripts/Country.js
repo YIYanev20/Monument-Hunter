@@ -20,6 +20,9 @@ case 4:
 case 5:
 	level[5] = 6;
 	break;
+case 6:
+	level[6] = 6;
+	break;
 }
 
 

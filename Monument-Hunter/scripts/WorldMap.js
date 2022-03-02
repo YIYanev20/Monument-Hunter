@@ -89,4 +89,28 @@ $('#update').on('click', _ => {
 	localStorage.setItem("lvl", JSON.stringify(lvl));
 });
 
+if (level[1] == 6 && level[2] == 6 && level[3] == 6 && level[4] == 6 && level[5] == 6) {
+	$('#ge').removeClass('disabled');
+}
+else {
+	$('#ge').addClass('disabled').prop('disabled', true);
+}
+
+$('#ge').on('click', _ => {
+	level[0] = 6;
+	if (level[6] < 5) {
+		level[6] = level[6] + 1;
+	}
+});
+
+if (level[6] > 0 && level[6] < 6) {
+	$('#ge').addClass('failed');
+}
+else if (level[6] > 5) {
+	$('#ge').removeClass('failed');
+	$('#ge').addClass('completed').prop('disabled', true);
+}
+
+
+
 });

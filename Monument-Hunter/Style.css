@@ -2,13 +2,19 @@ button
 {
 	font-family: Comic Sans MS;
 	color: #73B4FF;
-	font-size: 2.3vh;
+	font-size: 2.3vw;
 	font-weight: bold;
 	position: absolute;
-	border-width: 0.5vh;
+	border-width: 0.5vw;
 	background-color: transparent;
 	border-radius: 50%;
 	border-color: #73B4FF;
+}
+
+button:hover
+{
+	border-color: #5096DE;
+	color: #3078CA;
 }
 
 body
@@ -21,10 +27,10 @@ a
 	text-decoration: none;
 }
 
-button:hover
+div
 {
-	border-color: #5096DE;
-	color: #3078CA;
+	width: 100vw;
+	height: 100vh;
 }
 
 .failed
@@ -61,12 +67,6 @@ button:hover
 	color: #3078CA;
 }
 
-div
-{
-	width: 100vw;
-	height: 100vh;
-}
-
 #restart
 {
 	margin-top: 15%;
@@ -75,6 +75,11 @@ div
 #win
 {
 	margin-top: 15%;
+}
+
+#mainMenu
+{
+	margin-top: 53.5%;
 }
 
 #bg
@@ -107,3 +112,9 @@ div
 	margin-top: 16%;
 }
 
+#ge
+{
+	margin-left: 41%;
+	margin-top: 26.5%;
+	font-size: 2.5vh;
+}
