@@ -1,4 +1,59 @@
-button
+body
+{
+	margin: 0px;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+p
+{
+	font-family: Comic Sans MS;
+	color: #9A7945;
+	font-size: 1.4vw;
+	margin-top: 0.3%;
+	margin-left: 3%;
+	margin-right: 3%;
+	margin-bottom: 0px;
+	font-weight: bold;
+	position: absolute;
+}
+
+.srow
+{
+	margin-top: 3%;
+}
+
+
+.trow
+{
+	margin-top: 5.6%;
+}
+
+.option
+{
+	font-family: Comic Sans MS;
+	color: #684E24;
+	position: relative;
+	font-size: 1.2vw;
+	font-weight: bold;
+	border-width: 0.25vw;
+	background-color: #D1AF7A;
+	border-color: #684E24;
+	margin-top: 9.3%;
+	margin-left: 3%;
+}
+
+.option:hover
+{
+	color: #5F451B;
+	border-color: #5F451B;
+	background-color: #BC9A64;
+}
+
+.cname
 {
 	font-family: Comic Sans MS;
 	color: #73B4FF;
@@ -11,51 +66,21 @@ button
 	border-color: #73B4FF;
 }
 
-button:hover
+.cname:hover
 {
 	border-color: #5096DE;
-	color: #3078CA;
-}
-
-body
-{
-	margin: 0px;
-}
-
-a
-{
-	text-decoration: none;
-}
-
-div
-{
-	width: 65vw;
-	height: 15vh;
-	/*background: rgba(225, 225, 225, 0.75);*/
-	background: url(./images/WorldMap.jpg) no-repeat left top;
-	background-size: 100%;
-	border-width: 10vw;
-	border-color: black;
-	border: solid;
-	position: absolute;
-	margin-left: 17.5%;
-	margin-top: 0.5%;
-	border-radius: 1.5vw;
-}
-
-p
-{
-	font-family: Comic Sans MS;
-	color: #73B4FF;
-	font-size: 1.4vw;
-	margin-top: 0.3%;
-	margin-left: 5%;
-	margin-right: 5%;
-	margin-bottom: 0px;
+	color: #5096DE;
 }
 
 .failed
 {
+	font-family: Comic Sans MS;
+	font-size: 1.4vw;
+	font-weight: bold;
+	position: absolute;
+	border-width: 0.25vw;
+	background-color: transparent;
+	border-radius: 50%;
 	border-color: #F99494;
 	color: #FA8181;
 }
@@ -68,6 +93,13 @@ p
 
 .completed
 {
+	font-family: Comic Sans MS;
+	font-size: 1.4vw;
+	font-weight: bold;
+	position: absolute;
+	border-width: 0.25vw;
+	background-color: transparent;
+	border-radius: 50%;
 	border-width: 0px;
 	color: #8DFC7E;
 }
@@ -79,13 +111,36 @@ p
 
 .disabled
 {
+	font-family: Comic Sans MS;
+	font-size: 1.4vw;
+	font-weight: bold;
+	position: absolute;
+	background-color: transparent;
+	border-radius: 50%;
 	border-width: 0px;
-	color: #3078CA;
+	color: #5096DE;
 }
 
 .disabled:hover
 {
-	color: #3078CA;
+	color: #5096DE;
+}
+
+.window
+{
+	width: 65vw;
+	height: 15vh;
+	background: rgba(241, 208, 156, 1);
+	border:0.3vw solid #694815;	
+	position: absolute;
+	margin-left: 17.5%;
+	margin-top: 0.5%;
+	border-radius: 1.5vw;
+}
+
+#worldW
+{
+	height: 7.5vh;
 }
 
 #ls
@@ -106,7 +161,8 @@ p
 
 #mainMenu
 {
-	margin-top: 53.5%;
+	margin-left: 5%;
+	margin-top: 2%;
 }
 
 #bg

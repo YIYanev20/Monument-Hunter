@@ -12,9 +12,11 @@ $('#bg').on('click', _ => {
 });
 
 if (level[1] > 0 && level[1] < 6) {
+	$('#bg').removeClass('cname');
 	$('#bg').addClass('failed');
 }
 else if (level[1] > 5) {
+	$('#bg').removeClass('cname');
 	$('#bg').removeClass('failed');
 	$('#bg').addClass('completed').prop('disabled', true);
 }
@@ -28,9 +30,11 @@ $('#fr').on('click', _ => {
 });
 
 if (level[2] > 0 && level[2] < 6) {
+	$('#fr').removeClass('cname');
 	$('#fr').addClass('failed');
 }
 else if (level[2] > 5) {
+	$('#fr').removeClass('cname');
 	$('#fr').removeClass('failed');
 	$('#fr').addClass('completed').prop('disabled', true);
 }
@@ -44,9 +48,11 @@ $('#uk').on('click', _ => {
 });
 
 if (level[3] > 0 && level[3] < 6) {
+	$('#uk').removeClass('cname');
 	$('#uk').addClass('failed');
 }
 else if (level[3] > 5) {
+	$('#uk').removeClass('cname');
 	$('#uk').removeClass('failed');
 	$('#uk').addClass('completed').prop('disabled', true);
 }
@@ -60,9 +66,11 @@ $('#it').on('click', _ => {
 });
 
 if (level[4] > 0 && level[4] < 6) {
+	$('#it').removeClass('cname');
 	$('#it').addClass('failed');
 }
 else if (level[4] > 5) {
+	$('#it').removeClass('cname');
 	$('#it').removeClass('failed');
 	$('#it').addClass('completed').prop('disabled', true);
 }
@@ -76,9 +84,11 @@ $('#ru').on('click', _ => {
 });
 
 if (level[5] > 0 && level[5] < 6) {
+	$('#ru').removeClass('cname');
 	$('#ru').addClass('failed');
 }
 else if (level[5] > 5) {
+	$('#ru').removeClass('cname');
 	$('#ru').removeClass('failed');
 	$('#ru').addClass('completed').prop('disabled', true);
 }
@@ -91,8 +101,10 @@ $('#update').on('click', _ => {
 
 if (level[1] == 6 && level[2] == 6 && level[3] == 6 && level[4] == 6 && level[5] == 6) {
 	$('#ge').removeClass('disabled');
+	$('#ge').addClass('cname');
 }
 else {
+	$('#ge').removeClass('cname');
 	$('#ge').addClass('disabled').prop('disabled', true);
 }
 
@@ -104,9 +116,11 @@ $('#ge').on('click', _ => {
 });
 
 if (level[6] > 0 && level[6] < 6) {
+	$('#ge').removeClass('cname');
 	$('#ge').addClass('failed');
 }
 else if (level[6] > 5) {
+	$('#ge').removeClass('cname');
 	$('#ge').removeClass('failed');
 	$('#ge').addClass('completed').prop('disabled', true);
 }
