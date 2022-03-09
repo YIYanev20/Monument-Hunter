@@ -138,6 +138,42 @@ p
 	border-radius: 1.5vw;
 }
 
+.bgBg
+{
+	background: url(./images/bgBg.jpg) no-repeat left top;
+	background-size: 100%;
+}
+
+.bgFr
+{
+	background: url(./images/bgFr.jpg) no-repeat left top;
+	background-size: 100%;
+}
+
+.bgUk
+{
+	background: url(./images/bgUk.jpg) no-repeat left top;
+	background-size: 100%;
+}
+
+.bgIt
+{
+	background: url(./images/bgIt.jpg) no-repeat left top;
+	background-size: 100%;
+}
+
+.bgRu
+{
+	background: url(./images/bgRu.jpg) no-repeat left top;
+	background-size: 100%;
+}
+
+.bgGe
+{
+	background: url(./images/bgGe.jpg) no-repeat left top;
+	background-size: 100%;
+}
+
 #worldW
 {
 	height: 7.5vh;

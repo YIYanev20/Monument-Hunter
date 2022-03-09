@@ -1,5 +1,4 @@
 $(document).ready( _ => {
-
 let level = JSON.parse(localStorage.lvl);
 level[0] = 0;
 console.log(level);
