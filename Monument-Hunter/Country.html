@@ -2,14 +2,38 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 <body>
 
-	<a href="./WorldMap.html">
-		<button class="cname">Go back</button>
-		<button class="cname" id="win">Win</button>
-	</a>
+	<div id="darken"></div>
+	<div class="window" id="weapW"></div>
+	<div class="window" id="action">
+
+		<p id="default">Here is your new weapon! Here is your new weapon! Here is your new weapon! Here is Here is your new weapon! Here is your new weapon! Here is your new weapon! Here is Here is your new weapon! Here is your new weapon! Here is your new weapon! Here is</p>
+
+		<p id="atk0">You slapped the enemy and dealt 2 damage.</p>
+		<p id="atk1">You swung the rose at the enemy and dealt 5 damage.</p>
+		<p id="atk2">You smacked the enemy with the bagguette and dealt 4 damage.</p>
+		<p id="atk3">You spilled some of the hot tea on the enemy and dealt 6 damage.</p>
+		<p id="atk4">You poked the enemy with the paintbrush and dealt 3 damage.</p>
+		<p id="atk5">You stabbed the enemy with the broken glass bottle and dealt 7 damage.</p>
+
+		<p class="srow" id="hit1"> The enemy swung its rose at you and dealt 5 damage.</p>
+		<p class="srow" id="hit2"> The enemy smacked you with its bagguette and dealt 4 damage.</p>
+		<p class="srow" id="hit3"> The enemy spilled some hot tea from its cup on you and dealt 6 damage.</p>
+		<p class="srow" id="hit4"> The enemy poked you with its paintbrush and dealt 3 damage.</p>
+		<p class="srow" id="hit5"> The enemy stabbed you with its broken glass bottle and dealt 7 damage.</p>
+		<p class="srow" id="hit6"> The enemy shot you and dealt 9 damage.</p>
+
+		<p id="death">You died</p>
+		<p id="congrats">Congratulations for beating the enemy!</p>
+
+		<button class="option" id="attack">Attack</button>
+		<a href="./WorldMap.html">
+			<button class="option" id="flee">Flee</button>
+			<button class="option" id="proceed">Proceed</button>
+		</a>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="scripts/Country.js"></script>
