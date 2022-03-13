@@ -9,6 +9,7 @@ $('#darken').hide();
 $('#weapW').hide();
 
 $('p').hide();
+$('.weapText').show();
 $('#default').show();
 
 let player = [0,0];
@@ -50,56 +51,92 @@ case 6:
 }
 console.log(enemy);
 
+function setWeapDmg()
+{
+	switch(level[14])
+	{
+	case 0:
+		player[0] = 3;
+		break;
+	case 1:
+		player[0] = 6;
+		break;
+	case 2:
+		player[0] = 5;
+		break;
+	case 3:
+		player[0] = 7;
+		break;
+	case 4:
+		player[0] = 4;
+		break;
+	case 5:
+		player[0] = 8;
+		break;
+	}
+}
+
 function setInventory()
 {
 	if(level[7] == 1)
 	{		
 		$('#hand').addClass('weap');
+		$('#hand').children().show();
 	}
 
 	if(level[8] == 1)
 	{		
 		$('#rose').addClass('weap');
+		$('#rose').children().show();
 	}
 	else if (level[8] == 0)
 	{
 		$('#rose').addClass('noWeap');
+		$('#rose').children().hide();
 	}
 
 	if(level[9] == 1)
 	{
 		$('#bagguette').addClass('weap');
+		$('#bagguette').children().show();
 	}
 	else if (level[9] == 0)
 	{
 		$('#bagguette').addClass('noWeap');
+		$('#bagguette').children().hide();
 	}
 
 	if(level[10] == 1)
 	{
 		$('#tea').addClass('weap');
+		$('#tea').children().show();
 	}
 	else if (level[10] == 0)
 	{
 		$('#tea').addClass('noWeap');
+		$('#tea').children().hide();
 	}
 
 	if(level[11] == 1)
 	{
 		$('#brush').addClass('weap');
+		$('#brush').children().show();
 	}
 	else if (level[11] == 0)
 	{
 		$('#brush').addClass('noWeap');
+		$('#brush').children().hide();
 	}
 
 	if(level[12] == 1)
 	{
 		$('#bottle').addClass('weap');
+		$('#bottle').children().show();
 	}
 	else if (level[12] == 0)
 	{
 		$('#bottle').addClass('noWeap');
+		$('#bottle').children().hide();
 	}
 }
 
@@ -235,7 +272,13 @@ function afterPlayerAtk()
 		$('#darken').show();
 
 		$('p').hide();
+		$('.weapText').show();
 		$('#congrats').show();
+
+		let n = level[0] + 7;
+		level[n] = 1;
+
+		setCurrent(level[14]);
 
 		let lvl = level;
 		localStorage.setItem("lvl", JSON.stringify(lvl));
@@ -283,28 +326,43 @@ $('#hand').on('click' , _ =>
 });
 $('#rose').on('click' , _ =>
 {
-	setCurrent(1)
-	$('#weapW').hide();
+	if(level[8] > 0)
+	{
+		setCurrent(1)
+		$('#weapW').hide();
+	}
 });
 $('#bagguette').on('click' , _ =>
 {
-	setCurrent(2)
-	$('#weapW').hide();
+	if(level[9] > 0)
+	{
+		setCurrent(2)
+		$('#weapW').hide();
+	}
 });
 $('#tea').on('click' , _ =>
 {
-	setCurrent(3)
-	$('#weapW').hide();
+	if(level[10] > 0)
+	{
+		setCurrent(3)
+		$('#weapW').hide();
+	}
 });
 $('#brush').on('click' , _ =>
 {
-	setCurrent(4)
-	$('#weapW').hide();
+	if(level[11] > 0)
+	{
+		setCurrent(4)
+		$('#weapW').hide();
+	}
 });
 $('#bottle').on('click' , _ =>
 {
-	setCurrent(5)
-	$('#weapW').hide();
+	if(level[12] > 0)
+	{
+		setCurrent(5)
+		$('#weapW').hide();
+	}
 });
 
 
@@ -320,6 +378,7 @@ $('#attack').on('click' , _ =>
 
 	$('#attack').hide();
 	$('#flee').hide();
+	$('#weapS').hide();
 	playerAttack();
 	$('#next').show();
 });

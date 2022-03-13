@@ -14,6 +14,19 @@ p
 	position: absolute;
 }
 
+.weapText
+{
+	color: #684E24;
+	font-size: 0.7vw;
+}
+
+.item
+{
+	height: 7.5vw;
+	width: 6vw;
+	margin-left: 2vw;
+}
+
 .option
 {
 	font-family: Comic Sans MS;
@@ -46,7 +59,7 @@ p
 {
 	font-family: Comic Sans MS;
 	color: #73B4FF;
-	font-size: 1.4vw;
+	font-size: 1.3vw;
 	font-weight: bold;
 	position: absolute;
 	border-width: 0.25vw;
@@ -64,7 +77,7 @@ p
 .failed
 {
 	font-family: Comic Sans MS;
-	font-size: 1.4vw;
+	font-size: 1.3vw;
 	font-weight: bold;
 	position: absolute;
 	border-width: 0.25vw;
@@ -120,14 +133,15 @@ p
 	position: absolute;
 	width: 10vw;
 	height: 15vw;
-	color: #684E24;
 	background-color: #D1AF7A;
 	border: solid;
 	border-color: #684E24;
 	border-width: 0.3vw;
 	border-radius: 1.5vw;
-	margin-left: 1vw;
-	margin-top: 1vw;
+	margin-left: 0.75vw;
+	margin-top: 0.75vw;
+	padding-left: 0.25vw;
+	padding-top: 0.25vw;
 }
 
 .weap:hover
@@ -154,8 +168,10 @@ p
 	border-color: #B18C51;
 	border-width: 0.3vw;
 	border-radius: 1.5vw;
-	margin-left: 1vw;
-	margin-top: 1vw;
+	margin-left: 0.75vw;
+	margin-top: 0.75vw;
+	padding-left: 0.25vw;
+	padding-top: 0.25vw;
 }
 
 .window
@@ -176,13 +192,13 @@ p
 	width: 10vw;
 	height: 15vw;
 	color: #684E24;
-	background-color: #D1AF7A;
+	background-color: #E5C089;
 	border: solid;
 	border-color: #503C1B;
 	border-width: 0.6vw;
 	border-radius: 1.5vw;
-	margin-left: 1vw;
-	margin-top: 1vw;
+	margin-left: 0.75vw;
+	margin-top: 0.75vw;
 }
 
 .current:hover
@@ -197,6 +213,40 @@ p
 	color: #5F451B;
 	border-color: #433013;
 	background-color: #B28E56;
+}
+
+.clickArea
+{
+	height: 100vh;
+	width: 100vw;
+}
+
+#roseI
+{
+	width: 3vw;
+	margin-left: 3.5vw;
+}
+
+#teaI
+{
+	width: 8vw;
+	margin-left: 1vw;
+}
+
+#bottleI
+{
+	width: 7vw;
+	margin-left: 1.5vw;
+}
+
+#srow
+{
+	margin-top: 1vw;
+}
+
+#trow
+{
+	margin-top: 2vw;
 }
 
 #action
@@ -243,29 +293,29 @@ p
 
 #rose
 {
-	margin-left: 12.6vw;
+	margin-left: 12.35vw;
 }
 
 #bagguette
 {
-	margin-left: 24.2vw;
+	margin-left: 23.95vw;
 }
 
 #tea
 {
-	margin-top: 17.6vw;
+	margin-top: 17.35vw;
 }
 
 #brush
 {
-	margin-left: 12.6vw;
-	margin-top: 17.6vw;
+	margin-left: 12.35vw;
+	margin-top: 17.35vw;
 }
 
 #bottle
 {
-	margin-left: 24.2vw;
-	margin-top: 17.6vw;
+	margin-left: 23.95vw;
+	margin-top: 17.35vw;
 }
 
 #bg
