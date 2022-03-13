@@ -158,15 +158,8 @@ function afterPlayerAtk()
 
 		console.log(player);
 		console.log(enemy);
-
-		enemyAttack();
-
 		$('#next2').show();
-
-		$('#next2').on('click' , _ => 
-		{
-			afterEnemyAtk();
-		});
+		enemyAttack();
 	}
 }
 
@@ -198,15 +191,16 @@ $('#attack').on('click' , _ =>
 
 	$('#attack').hide();
 	$('#flee').hide();
-
-	$('#next').show();
-
 	playerAttack();
-
-	$('#next').on('click' , _ => 
-	{
-		afterPlayerAtk();
-	});
+	$('#next').show();
+});
+$('#next').on('click' , _ => 
+{
+	afterPlayerAtk();
+});
+$('#next2').on('click' , _ => 
+{
+	afterEnemyAtk();
 });
 
 });
