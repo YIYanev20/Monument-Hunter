@@ -5,38 +5,15 @@ console.log(level);
 $('#proceed').hide();
 $('#next').hide();
 $('#next2').hide();
-$('#weapW').hide();
 $('#darken').hide();
+$('#weapW').hide();
 
 $('p').hide();
 $('#default').show();
 
 let player = [0,0];
 let enemy = [0,0];
-
 player[1] = 30; // player hp
-switch(level[7])
-{
-case 0:
-	player[0] = 3; // weapon dmg
-	break;
-case 1:
-	player[0] = 6;
-	break;
-case 2:
-	player[0] = 5;
-	break;
-case 3:
-	player[0] = 7;
-	break;
-case 4:
-	player[0] = 4;
-	break;
-case 5:
-	player[0] = 8;
-	break;
-}
-console.log(player);
 
 switch(level[0])
 {
@@ -73,9 +50,120 @@ case 6:
 }
 console.log(enemy);
 
+function setInventory()
+{
+	if(level[7] == 1)
+	{		
+		$('#hand').addClass('weap');
+	}
+
+	if(level[8] == 1)
+	{		
+		$('#rose').addClass('weap');
+	}
+	else if (level[8] == 0)
+	{
+		$('#rose').addClass('noWeap');
+	}
+
+	if(level[9] == 1)
+	{
+		$('#bagguette').addClass('weap');
+	}
+	else if (level[9] == 0)
+	{
+		$('#bagguette').addClass('noWeap');
+	}
+
+	if(level[10] == 1)
+	{
+		$('#tea').addClass('weap');
+	}
+	else if (level[10] == 0)
+	{
+		$('#tea').addClass('noWeap');
+	}
+
+	if(level[11] == 1)
+	{
+		$('#brush').addClass('weap');
+	}
+	else if (level[11] == 0)
+	{
+		$('#brush').addClass('noWeap');
+	}
+
+	if(level[12] == 1)
+	{
+		$('#bottle').addClass('weap');
+	}
+	else if (level[12] == 0)
+	{
+		$('#bottle').addClass('noWeap');
+	}
+}
+
+function setCurrent(a)
+{
+	$('#hand').removeClass('noWeap');
+	$('#rose').removeClass('noWeap');
+	$('#bagguette').removeClass('noWeap');
+	$('#tea').removeClass('noWeap');
+	$('#brush').removeClass('noWeap');
+	$('#bottle').removeClass('noWeap');
+
+	$('#hand').removeClass('weap');
+	$('#rose').removeClass('weap');
+	$('#bagguette').removeClass('weap');
+	$('#tea').removeClass('weap');
+	$('#brush').removeClass('weap');
+	$('#bottle').removeClass('weap');
+
+	$('#hand').removeClass('current');
+	$('#rose').removeClass('current');
+	$('#bagguette').removeClass('current');
+	$('#tea').removeClass('current');
+	$('#brush').removeClass('current');
+	$('#bottle').removeClass('current');
+
+	let n = level[14] + 7;
+	level[n] = level[13];
+	level[14] = a;
+
+	switch(level[14])
+	{
+	case 0:
+		level[7] = 2;
+		$('#hand').addClass('current');
+		break;
+	case 1:
+		$('#rose').addClass('current');
+		level[8] = 2;
+		break;
+	case 2:
+		$('#bagguette').addClass('current');
+		level[9] = 2;
+		break;
+	case 3:
+		$('#tea').addClass('current');
+		level[10] = 2;
+		break;
+	case 4:
+		$('#brush').addClass('current');
+		level[11] = 2;
+		break;
+	case 5:
+		$('#bottle').addClass('current');
+		level[12] = 2;
+		break;
+	}
+	setInventory();
+}
+
+
 function playerAttack()
 {
-	switch(level[7])
+	switch(level[14])
 	{
 	case 0:
 		$('p').hide();
@@ -182,11 +270,52 @@ function afterEnemyAtk()
 	}
 }
 
+$('#weapS').on('click' , _ =>
+{
+	$('#weapW').show();
+	setCurrent(level[14]);
+});
+
+$('#hand').on('click' , _ =>
+{
+	setCurrent(0)
+	$('#weapW').hide();
+});
+$('#rose').on('click' , _ =>
+{
+	setCurrent(1)
+	$('#weapW').hide();
+});
+$('#bagguette').on('click' , _ =>
+{
+	setCurrent(2)
+	$('#weapW').hide();
+});
+$('#tea').on('click' , _ =>
+{
+	setCurrent(3)
+	$('#weapW').hide();
+});
+$('#brush').on('click' , _ =>
+{
+	setCurrent(4)
+	$('#weapW').hide();
+});
+$('#bottle').on('click' , _ =>
+{
+	setCurrent(5)
+	$('#weapW').hide();
+});
+
+
 $('#attack').on('click' , _ =>
 {
+	setWeapDmg();	
+
 	enemy[1] = enemy[1] - player[0];
 
 	console.log(player);
+	console.log(level[14]);
 	console.log(enemy);
 
 	$('#attack').hide();
@@ -194,6 +323,7 @@ $('#attack').on('click' , _ =>
 	playerAttack();
 	$('#next').show();
 });
+
 $('#next').on('click' , _ => 
 {
 	afterPlayerAtk();

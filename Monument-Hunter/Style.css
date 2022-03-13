@@ -3,11 +3,6 @@ body
 	margin: 0px;
 }
 
-a
-{
-	text-decoration: none;
-}
-
 p
 {
 	font-family: Comic Sans MS;
@@ -16,8 +11,6 @@ p
 	margin-top: 0.25%;
 	margin-left: 3%;
 	margin-right: 3%;
-	margin-bottom: 0px;
-
 	position: absolute;
 }
 
@@ -26,12 +19,12 @@ p
 	font-family: Comic Sans MS;
 	color: #684E24;
 	position: relative;
-	font-size: 1.2vw;
+	font-size: 1.4vw;
 	font-weight: bold;
 	border-width: 0.25vw;
 	background-color: #D1AF7A;
 	border-color: #684E24;
-	margin-top: 9.3%;
+	margin-top: 8%;
 	margin-left: 3%;
 }
 
@@ -113,7 +106,6 @@ p
 	font-weight: bold;
 	position: absolute;
 	background-color: transparent;
-	border-radius: 50%;
 	border-width: 0px;
 	color: #5096DE;
 }
@@ -123,23 +115,88 @@ p
 	color: #5096DE;
 }
 
-.clickArea
+.weap
 {
 	position: absolute;
-	width: 100vw;
-	height: 100vh;
+	width: 10vw;
+	height: 15vw;
+	color: #684E24;
+	background-color: #D1AF7A;
+	border: solid;
+	border-color: #684E24;
+	border-width: 0.3vw;
+	border-radius: 1.5vw;
+	margin-left: 1vw;
+	margin-top: 1vw;
+}
+
+.weap:hover
+{
+	color: #5F451B;
+	border-color: #5F451B;
+	background-color: #BC9A64;
+}
+
+.weap:active
+{
+	color: #5F451B;
+	border-color: #5F451B;
+	background-color: #B28E56;
+}
+
+.noWeap
+{
+	position: absolute;
+	width: 10vw;
+	height: 15vw;
+	background-color: #80602D;
+	border: solid;
+	border-color: #B18C51;
+	border-width: 0.3vw;
+	border-radius: 1.5vw;
+	margin-left: 1vw;
+	margin-top: 1vw;
 }
 
 .window
 {
 	width: 65vw;
-	height: 15vh;
+	height: 8vw;
 	background-color: #80602D;
 	border:0.3vw solid #B18C51;	
 	position: absolute;
 	margin-left: 17.5%;
 	margin-top: 0.5%;
 	border-radius: 1.5vw;
+}
+
+.current
+{
+	position: absolute;
+	width: 10vw;
+	height: 15vw;
+	color: #684E24;
+	background-color: #D1AF7A;
+	border: solid;
+	border-color: #503C1B;
+	border-width: 0.6vw;
+	border-radius: 1.5vw;
+	margin-left: 1vw;
+	margin-top: 1vw;
+}
+
+.current:hover
+{
+	color: #5F451B;
+	border-color: #433013;
+	background-color: #BC9A64;
+}
+
+.current:active
+{
+	color: #5F451B;
+	border-color: #433013;
+	background-color: #B28E56;
 }
 
 #action
@@ -157,15 +214,15 @@ p
 
 #weapW
 {
-	height: 35vw;
-	width: 50vw;
-	margin-left: 25%;
+	height: 34.6vw;
+	width: 35.8vw;
+	margin-left: 31.8%;
 	margin-top: 5%;
 }
 
 #worldW
 {
-	height: 7.5vh;
+	height: 4.5vw;
 }
 
 #restart
@@ -182,6 +239,33 @@ p
 {
 	margin-left: 5%;
 	margin-top: 2%;
+}
+
+#rose
+{
+	margin-left: 12.6vw;
+}
+
+#bagguette
+{
+	margin-left: 24.2vw;
+}
+
+#tea
+{
+	margin-top: 17.6vw;
+}
+
+#brush
+{
+	margin-left: 12.6vw;
+	margin-top: 17.6vw;
+}
+
+#bottle
+{
+	margin-left: 24.2vw;
+	margin-top: 17.6vw;
 }
 
 #bg

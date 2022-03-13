@@ -14,10 +14,12 @@
 <!-- All jQuery dependant files should be under this (all js's)! -->
 
 	<script>
-		let lvl = [0,0,0,0,0,0,0,0];
+		let lvl = [0,0,0,0,0,0,0,2,0,0,0,0,0,1,0];
 		// lvl[0] = current level (0 = world map; 1 = bg; 2 = fr; 3 = uk; 4 = it; 5 = ru; 6 = ge)
 		// lvl[1-6] = level status (0 = unvisited (blue); 1-5 = failed 1-5 times (red); 6 = completed (green))
-		// lvl[7] = current weapon
+		// lvl[7-12] = 0-5 weapon bool
+		// lvl[13] = weapon bool before becoming current
+		// lvl[14] = current weapon
 		console.log(lvl);
 		$('#ls').on('click' , _ => {
 			localStorage.setItem("lvl", JSON.stringify(lvl));

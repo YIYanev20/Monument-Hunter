@@ -13,7 +13,7 @@ else {
 }
 
 $('#restart').on('click' , _ => {
-	let lvl = [0,0,0,0,0,0,0,0];
+	let lvl = [0,0,0,0,0,0,0,2,0,0,0,0,0,1,0];
 	localStorage.setItem("lvl", JSON.stringify(lvl));
 });
 
