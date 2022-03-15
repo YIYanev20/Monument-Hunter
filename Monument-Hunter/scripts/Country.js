@@ -7,51 +7,163 @@ $('#next').hide();
 $('#next2').hide();
 $('#darken').hide();
 $('#weapW').hide();
+$('.atk').hide();
 
 $('p').hide();
 $('.weapText').show();
 $('#default').show();
 
-let player = [0,0,0];
+let player = [0,0,0,0];
 let enemy = [0,0];
 player[1] = 30; // player hp
 
 switch(level[0])
 {
-case 1:
-	$("body").addClass('bgBg');
-	enemy[0] = 6; // enemy dmg
-	enemy[1] = 15; // enemy hp
-	break;
-case 2:
-	$("body").addClass('bgFr');
-	enemy[0] = 5;
-	enemy[1] = 10;
-	break;
-case 3:
-	$("body").addClass('bgUk');
-	enemy[0] = 7;
-	enemy[1] = 20;
-	break;
-case 4:
-	$("body").addClass('bgIt');
-	enemy[0] = 4;
-	enemy[1] = 15;
-	break;
-case 5:
-	$("body").addClass('bgRu');
-	enemy[0] = 8;
-	enemy[1] = 25;
-	break;
-case 6:
-	$("body").addClass('bgGe');
-	enemy[0] = 10;
-	enemy[1] = 50;
-	break;
+	case 1:
+		$("body").addClass('bgBg');
+		enemy[0] = 6; // enemy dmg
+		enemy[1] = 15; // enemy hp
+		break;
+	case 2:
+		$("body").addClass('bgFr');
+		enemy[0] = 5;
+		enemy[1] = 10;
+		break;
+	case 3:
+		$("body").addClass('bgUk');
+		enemy[0] = 7;
+		enemy[1] = 20;
+		break;
+	case 4:
+		$("body").addClass('bgIt');
+		enemy[0] = 4;
+		enemy[1] = 15;
+		break;
+	case 5:
+		$("body").addClass('bgRu');
+		enemy[0] = 8;
+		enemy[1] = 25;
+		break;
+	case 6:
+		$("body").addClass('bgGe');
+		enemy[0] = 10;
+		enemy[1] = 50;
+		break;
 }
 console.log(enemy);
 
-function setWeapDmg(turn)
+function hitFunc()
+{
+
+}
+function p3Calc1(t)
+{
+	switch(level[14])
+	{
+		case 0:
+			switch (t)
+			{
+				case 0:
+					player[3] = 2;
+					break;
+				case 1:
+
+			}
+			break;
+		case 1:
+			$('#bar1').show();
+			break;
+		case 2:
+			$('#bar2').show();
+			break;
+		case 3:
+			$('#bar3').show();
+			break;
+		case 4:
+			$('#bar4').show();
+			break;
+		case 5:
+			$('#bar5').show();
+			break;
+	}
+}
+function attackFunc()
+{
+	let time;
+	$('#aText').show();
+	switch(player[14])
+	{
+		case 0:
+			$('#bar0').show();
+			break;
+		case 1:
+			$('#bar1').show();
+			break;
+		case 2:
+			$('#bar2').show();
+			break;
+		case 3:
+			$('#bar3').show();
+			break;
+		case 4:
+			$('#bar4').show();
+			break;
+		case 5:
+			$('#bar5').show();
+			break;
+	}
+	$('#aMark').show();
+	$('#aBtn').show();
+
+	let tStart = performance.now();
+	hitFunc();
+	let tEnd = performance.now();
+
+	time = tEnd - tStart;
+	if (((time < 150) || (time > 1850)) || (time > 850 && time < 1150))
+	{
+		p3Calc1(0);
+	}
+	else if ((time > 0 && time < 150) || (time > 1850 && time < 2000))
+	{
+		p3Calc1(1);
+	}
+	else if ((time > 0 && time < 150) || (time > 1850 && time < 2000))
+	{
+		p3Calc1(2);
+	}
+	else if ((time > 0 && time < 150) || (time > 1850 && time < 2000))
+	{
+		p3Calc1(3);
+	}
+	else if ((time > 0 && time < 150) || (time > 1850 && time < 2000))
+	{
+		p3Calc1(4);
+	}
+	else if ((time > 0 && time < 150) || (time > 1850 && time < 2000))
+	{
+		p3Calc1(5);
+	}
+	else if ((time > 0 && time < 150) || (time > 1850 && time < 2000))
+	{
+		p3Calc1(6);
+	}
+	else if ((time > 0 && time < 150) || (time > 1850 && time < 2000))
+	{
+		p3Calc1(7);
+	}
+	else if ((time > 0 && time < 150) || (time > 1850 && time < 2000))
+	{
+		p3Calc1(8);
+	}
+
+	setTimeout( _ =>
+	{
+		$('#aMark').hide(); //make it stop
+		$('#aBtn').hide();
+	}, 2000);
+}
+function setWeapDmg()
 {
 	switch(level[14])
 	{
@@ -79,6 +191,7 @@ function setWeapDmg(turn)
 		player[0] = 8;
 		break;
 	}
+	player[0] = player[0] - player[3];
 }
 
 function setInventory()
@@ -144,7 +257,6 @@ function setInventory()
 		$('#bottle').children().hide();
 	}
 }
-
 function setCurrent(a)
 {
 	$('#hand').removeClass('noWeap');
@@ -227,7 +339,6 @@ function playerAttack()
 		break;
 	}
 }
-
 function enemyAttack()
 {
 	switch(level[0])
@@ -300,7 +411,6 @@ function afterPlayerAtk()
 		$('#next2').show();
 	}
 }
-
 function afterEnemyAtk()
 {
 	$('p').hide();
@@ -383,8 +493,10 @@ $('#attack').on('click' , _ =>
 
 	if(player[2] != 4 || level[14] != 3)
 	{
+		attackFunc();
+		$('.atk').hide();
 		playerAttack();
-		setWeapDmg(player[2]);	
+		setWeapDmg();	
 
 		enemy[1] = enemy[1] - player[0];
 
