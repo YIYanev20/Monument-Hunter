@@ -12,7 +12,7 @@ $('p').hide();
 $('.weapText').show();
 $('#default').show();
 
-let player = [0,0];
+let player = [0,0,0];
 let enemy = [0,0];
 player[1] = 30; // player hp
 
@@ -51,7 +51,7 @@ case 6:
 }
 console.log(enemy);
 
-function setWeapDmg()
+function setWeapDmg(turn)
 {
 	switch(level[14])
 	{
@@ -69,6 +69,11 @@ function setWeapDmg()
 		break;
 	case 4:
 		player[0] = 4;
+		if(player[2] == 2)
+		{
+			player[0] = 9;
+			$('#eff4').show();
+		}
 		break;
 	case 5:
 		player[0] = 8;
@@ -203,27 +208,21 @@ function playerAttack()
 	switch(level[14])
 	{
 	case 0:
-		$('p').hide();
 		$('#atk0').show();
 		break;
 	case 1:
-		$('p').hide();
 		$('#atk1').show();
 		break;
 	case 2:
-		$('p').hide();
 		$('#atk2').show();
 		break;
 	case 3:
-		$('p').hide();
 		$('#atk3').show();
 		break;
 	case 4:
-		$('p').hide();
 		$('#atk4').show();
 		break;
 	case 5:
-		$('p').hide();
 		$('#atk5').show();
 		break;
 	}
@@ -234,27 +233,21 @@ function enemyAttack()
 	switch(level[0])
 	{
 	case 1:
-		$('p').hide();
 		$('#hit1').show();
 		break;
 	case 2:
-		$('p').hide();
 		$('#hit2').show();
 		break;
 	case 3:
-		$('p').hide();
 		$('#hit3').show();
 		break;
 	case 4:
-		$('p').hide();
 		$('#hit4').show();
 		break;
 	case 5:
-		$('p').hide();
 		$('#hit5').show();
 		break;
 	case 6:
-		$('p').hide();
 		$('#hit6').show();
 		break;
 	}
@@ -262,7 +255,9 @@ function enemyAttack()
 
 function afterPlayerAtk()
 {
+	$('p').hide();
 	$('#next').hide();
+
 	if(enemy[1] < 1)
 	{
 		level[level[0]] = 6
@@ -271,7 +266,6 @@ function afterPlayerAtk()
 		$('#weapW').show();
 		$('#darken').show();
 
-		$('p').hide();
 		$('.weapText').show();
 		$('#congrats').show();
 
@@ -285,12 +279,25 @@ function afterPlayerAtk()
 	}
 	else
 	{
-		player[1] = player[1] - enemy[0];
+		if(player[2] != 3 || level[14] != 2)
+		{
+			console.log(player);
+			console.log(enemy);
+			enemyAttack();
 
-		console.log(player);
-		console.log(enemy);
+			if (level[14] == 1)
+			{
+				enemy[0]--;
+				$('#eff1').show();
+			}
+			player[1] = player[1] - enemy[0];
+		}
+		else
+		{
+			$('#eff2').show();
+		}
+
 		$('#next2').show();
-		enemyAttack();
 	}
 }
 
@@ -368,18 +375,27 @@ $('#bottle').on('click' , _ =>
 
 $('#attack').on('click' , _ =>
 {
-	setWeapDmg();	
-
-	enemy[1] = enemy[1] - player[0];
-
-	console.log(player);
-	console.log(level[14]);
-	console.log(enemy);
-
 	$('#attack').hide();
 	$('#flee').hide();
 	$('#weapS').hide();
-	playerAttack();
+	$('p').hide();
+	player[2]++;
+
+	if(player[2] != 4 || level[14] != 3)
+	{
+		playerAttack();
+		setWeapDmg(player[2]);	
+
+		enemy[1] = enemy[1] - player[0];
+
+		console.log(player);
+		console.log(level[14]);
+		console.log(enemy);
+	}
+	else
+	{
+		$('#eff3').show();
+	}
 	$('#next').show();
 });
 

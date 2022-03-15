@@ -124,6 +124,4 @@ else if (level[6] > 5) {
 	$('#ge').addClass('completed').prop('disabled', true);
 }
 
-
-
 });
