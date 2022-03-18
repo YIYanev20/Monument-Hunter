@@ -243,6 +243,30 @@ p
 	margin-top: 1.9vw;
 }
 
+.actionW
+{
+	width: 65vw;
+	height: 8vw;
+	background-color: #80602D;
+	border:0.3vw solid #B18C51;	
+	position: absolute;
+	margin-left: 17.5%;
+	border-radius: 1.5vw;
+	margin-top: 47%;
+}
+
+.barW
+{
+	width: 65vw;
+	background-color: #80602D;
+	border:0.3vw solid #B18C51;	
+	position: absolute;
+	margin-left: 17.5%;
+	border-radius: 1.5vw;
+	margin-top: 40%;
+	height: 15vw;
+}
+
 #aBtn
 {
 	font-family: Comic Sans MS;
@@ -325,11 +349,6 @@ p
 #trow
 {
 	margin-top: 2vw;
-}
-
-#action
-{
-	margin-top: 47%;
 }
 
 #darken

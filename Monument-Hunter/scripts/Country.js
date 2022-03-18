@@ -3,7 +3,9 @@ let level = JSON.parse(localStorage.lvl);
 console.log(level);
 
 $('#proceed').hide();
+$('#next').css('display:none !important');
 $('#next').hide();
+$('#next2').css('display:none !important');
 $('#next2').hide();
 $('#darken').hide();
 $('#weapW').hide();
@@ -17,8 +19,6 @@ $('#default').show();
 let player = [0,0,0,0];
 let enemy = [0,0];
 let time = [0,0,0];
-let battleReturn = 0;
-let con = 0; // continue bool
 player[1] = 30; // player hp
 
 switch(level[0])
@@ -72,11 +72,12 @@ function enemyAttack()
 		$('#hit6').show();
 		break;
 	}
-	con = 1;
+	$('#next2').show();
 }
 function dBattle3(b)
 {
 	$('.ddg').hide();
+	$('#action').removeClass('barW').addClass('actionW');
 	if(b == 1)
 	{
 		enemy[2] = 0;
@@ -116,7 +117,6 @@ function dBattle3(b)
 }
 function dBattle2()
 {
-	$('#dMark').removeClass('move').addClass('ddg');
 	time[0] = time[2] - time[1];
 
 	if (((time[0] < 150) || (time[0] > 1849)) || (time[0] > 849 && time[0] < 1150))
@@ -134,14 +134,15 @@ function dBattle2()
 }
 function dBattle()
 {
+	$('#action').removeClass('actionW').addClass('barW');
 	$('.ddg').show();
-
 	$('#dMark').removeClass('ddg').addClass('move');
 	time[1] = performance.now();
 }
-$('#dBbtn').on('click' , _ =>
+$('#dBtn').on('click' , _ => 
 {
 	time[2] = performance.now();
+	$('#dMark').removeClass('move').addClass('ddg');
 	dBattle2();
 });
 
@@ -174,7 +175,8 @@ function setWeapDmg()
 			break;
 	}
 	player[0] = player[0] - player[3];
-	con = 1;
+	console.log(6);
+	$('#next').show();
 }
 function playerAttack()
 {
@@ -199,11 +201,13 @@ function playerAttack()
 		$('#atk5').show();
 		break;
 	}
+	console.log(5);
 	setWeapDmg();
 }
 function aBattle3(b)
 {
 	$('.atk').hide();
+	$('#action').removeClass('barW').addClass('actionW');
 	switch(player[14])
 	{
 		case 0:
@@ -315,12 +319,13 @@ function aBattle3(b)
 			}
 			break;
 	}
+	console.log(4);
 	playerAttack();
 }
 function aBattle2()
 {
 	time[0] = time[2] - time[1];
-
+	console.log(3);
 	if (((time[0] < 150) || (time[0] > 1849)) || (time[0] > 849 && time[0] < 1150))
 	{
 		aBattle3(1);
@@ -344,18 +349,19 @@ function aBattle2()
 }
 function aBattle()
 {
+	$('#action').removeClass('actionW').addClass('barW');
 	$('.atk').show();
-
 	$('#aMark').removeClass('atk').addClass('move');
+	$('#next').css('display:none !important');
+	$('#next').hide();
 	time[1] = performance.now();
 }
-$('#aBbtn').on('click' , _ =>
+$('#aBtn').on('click' , _ => 
 {
 	time[2] = performance.now();
 	$('#aMark').removeClass('move').addClass('atk');
 	aBattle2();
 });
-
 
 function setInventory()
 {
@@ -480,7 +486,6 @@ function setCurrent(a)
 function afterEnemyAtk()
 {
 	$('p').hide();
-	$('#next2').hide();
 
 	if (player[1] < 1)
 	{
@@ -498,7 +503,6 @@ function afterEnemyAtk()
 function afterPlayerAtk()
 {
 	$('p').hide();
-	$('#next').hide();
 
 	if(enemy[1] < 1)
 	{
@@ -524,22 +528,16 @@ function afterPlayerAtk()
 		if(player[2] != 3 || level[14] != 2)
 		{
 			dBattle();
-			if(con = 1)
+			if (level[14] == 1 && enemy[0] > 0)
 			{
-				if (level[14] == 1 && enemy[0] > 0)
-				{
-					enemy[0]--;
-					$('#eff1').show();
-				}
-				player[1] = player[1] - enemy[0];
-				$('#next2').show();
+				enemy[0]--;
+				$('#eff1').show();
 			}
-			con = 0;
+			player[1] = player[1] - enemy[0];
 		}
 		else
 		{
 			$('#eff2').show();
-			$('#next2').show();
 		}
 	}
 }
@@ -608,26 +606,23 @@ $('#attack').on('click' , _ =>
 	if(player[2] != 4 || level[14] != 3)
 	{
 		aBattle();
-		if(con = 1)
-		{
-			enemy[1] = enemy[1] - player[0];
-			$('#next').show();
-		}
-		con = 0;
+		enemy[1] = enemy[1] - player[0];
 	}
 	else
 	{
 		$('#eff3').show();
-		$('#next').show();
 	}
+	
 });
 
 $('#next').on('click' , _ => 
 {
+	$('#next').hide();
 	afterPlayerAtk();
 });
 $('#next2').on('click' , _ => 
 {
+	$('#next2').hide();
 	afterEnemyAtk();
 });
 
