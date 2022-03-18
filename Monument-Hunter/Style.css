@@ -276,6 +276,15 @@ p
 	margin-left: 3vw;
 }
 
+#dMark
+{
+	height: 5vw;
+	width: 0.8vw;
+	position: absolute;
+	margin-top: 4.5vw;
+	margin-left: 3vw;
+}
+
 #aBar
 {
 	width: 60vw;
