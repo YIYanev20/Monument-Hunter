@@ -13,24 +13,24 @@ p
 	margin-right: 3%;
 	position: absolute;
 }
-/*
+
 .move
 {
 	animation: markAn 1s linear forwards 2 alternate;
 }
 @keyframes markAn
 {
-	0%
+	from
 	{
-		transform: translateX(0);
+		transform: translateX(0%);
 	}
 
-	100%
+	to
 	{
-		transform: translateX(100);
+		transform: translateX(6850%);
 	}
 }
-*/
+
 .weapText
 {
 	color: #684E24;
@@ -263,21 +263,48 @@ p
 	position: absolute;
 	margin-left: 17.5%;
 	border-radius: 1.5vw;
-	margin-top: 40%;
-	height: 15vw;
+	margin-top: 42.5%;
+	height: 13vw;
+}
+
+#aMark
+{
+	height: 5vw;
+	width: 0.8vw;
+	position: absolute;
+	margin-top: 4.5vw;
+	margin-left: 3vw;
+}
+
+#aBar
+{
+	width: 60vw;
+	height: 5vw;
+	position: absolute;
+	margin-top: 4.5vw;
+	margin-left: 2vw;
+}
+
+#dBar
+{
+	width: 60vw;
+	height: 5vw;
+	position: absolute;
+	margin-top: 4.5vw;
+	margin-left: 2vw;
 }
 
 #aBtn
 {
 	font-family: Comic Sans MS;
 	color: #684E24;
-	position: relative;
+	position: absolute;
 	font-size: 1.4vw;
 	font-weight: bold;
 	border-width: 0.25vw;
 	background-color: #D1AF7A;
 	border-color: #684E24;
-	margin-top: 8%;
+	margin-top: 10vw;
 	margin-left: 3%;
 }
 
@@ -299,13 +326,13 @@ p
 {
 	font-family: Comic Sans MS;
 	color: #684E24;
-	position: relative;
+	position: absolute;
 	font-size: 1.4vw;
 	font-weight: bold;
 	border-width: 0.25vw;
 	background-color: #D1AF7A;
 	border-color: #684E24;
-	margin-top: 8%;
+	margin-top: 10vw;
 	margin-left: 3%;
 }
 

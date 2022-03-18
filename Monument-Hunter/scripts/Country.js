@@ -119,11 +119,11 @@ function dBattle2()
 {
 	time[0] = time[2] - time[1];
 
-	if (((time[0] < 150) || (time[0] > 1849)) || (time[0] > 849 && time[0] < 1150))
+	if (((time[0] < 250) || (time[0] > 1749)) || (time[0] > 749 && time[0] < 1250))
 	{
 		dBattle3(1);
 	}
-	else if (((time[0] > 149 && time[0] < 450) || (time[0] > 549 && time[0] < 850)) || ((time[0] > 1149 && time[0] < 1450) || (time[0] > 1549 && time[0] < 1850)))
+	else if (((time[0] > 249 && time[0] < 450) || (time[0] > 549 && time[0] < 750)) || ((time[0] > 1249 && time[0] < 1450) || (time[0] > 1549 && time[0] < 1750)))
 	{
 		dBattle3(2);
 	}
