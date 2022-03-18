@@ -16,9 +16,15 @@ $('p').hide();
 $('.weapText').show();
 $('#default').show();
 
+$('.hpPlayer').hide();
+$('#hp6p').show();
+$('.hpEnemy').hide();
+$('#hp6e').show();
+
 let player = [0,0,0,0];
 let enemy = [0,0];
 let time = [0,0,0];
+let hpMult;
 player[1] = 30; // player hp
 
 switch(level[0])
@@ -26,27 +32,92 @@ switch(level[0])
 	case 1:
 		$("body").addClass('bgBg');
 		enemy[1] = 15; // enemy hp
+		hpMult = 4;
 		break;
 	case 2:
 		$("body").addClass('bgFr');
 		enemy[1] = 10;
+		hpMult = 6;
 		break;
 	case 3:
 		$("body").addClass('bgUk');
 		enemy[1] = 20;
+		hpMult = 3;
 		break;
 	case 4:
 		$("body").addClass('bgIt');
 		enemy[1] = 15;
+		hpMult = 4;
 		break;
 	case 5:
 		$("body").addClass('bgRu');
 		enemy[1] = 25;
+		hpMult = 2.4;
 		break;
 	case 6:
 		$("body").addClass('bgGe');
 		enemy[1] = 50;
+		hpMult = 1.2;
 		break;
+}
+
+function setPlayerHpBar(h)
+{
+	$('.hpPlayer').hide();
+	if(h < 6)
+	{
+		$('#hp1p').show();
+	}
+	else if(h < 11)
+	{
+		$('#hp2p').show();
+	}
+	else if(h < 16)
+	{
+		$('#hp3p').show();
+	}
+	else if(h < 21)
+	{
+		$('#hp4p').show();
+	}
+	else if(h < 26)
+	{
+		$('#hp5p').show();
+	}
+	else
+	{
+		$('#hp6p').show();
+	}
+}
+function setEnemyHpBar(h)
+{
+	let hp = h * hpMult;
+
+	$('.hpEnemy').hide();
+	if(h < 6)
+	{
+		$('#hp1e').show();
+	}
+	else if(h < 11)
+	{
+		$('#hp2e').show();
+	}
+	else if(h < 16)
+	{
+		$('#hp3e').show();
+	}
+	else if(h < 21)
+	{
+		$('#hp4e').show();
+	}
+	else if(h < 26)
+	{
+		$('#hp5e').show();
+	}
+	else
+	{
+		$('#hp6e').show();
+	}
 }
 
 function enemyAttack()
@@ -492,6 +563,7 @@ function afterEnemyAtk()
 		$('#proceed').show();
 		$('#darken').show();
 		$('#death').show();
+		$('.hpPlayer').hide();
 	}
 	else
 	{
@@ -511,9 +583,9 @@ function afterPlayerAtk()
 		$('#proceed').show();
 		$('#weapW').show();
 		$('#darken').show();
-
 		$('.weapText').show();
 		$('#congrats').show();
+		$('.hpEnemy').hide();
 
 		let n = level[0] + 7;
 		level[n] = 1;
@@ -534,6 +606,7 @@ function afterPlayerAtk()
 				$('#eff1').show();
 			}
 			player[1] = player[1] - enemy[0];
+			setPlayerHpBar(player[1]);
 		}
 		else
 		{
@@ -607,6 +680,7 @@ $('#attack').on('click' , _ =>
 	{
 		aBattle();
 		enemy[1] = enemy[1] - player[0];
+		setEnemyHpBar(enemy[1]);
 	}
 	else
 	{

@@ -267,6 +267,24 @@ p
 	height: 13vw;
 }
 
+.hpPlayer
+{
+	width: 13vw;
+	height: 2vw;
+	position: absolute;
+	margin-top: 50vw;
+	margin-left: 2vw;
+}
+
+.hpEnemy
+{
+	width: 13vw;
+	height: 2vw;
+	position: absolute;
+	margin-top: 50vw;
+	margin-left: 85vw;
+}
+
 #aMark
 {
 	height: 5vw;
