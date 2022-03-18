@@ -13,7 +13,7 @@ p
 	margin-right: 3%;
 	position: absolute;
 }
-
+/*
 .move
 {
 	animation: markAn 1s linear forwards 2 alternate;
@@ -30,7 +30,7 @@ p
 		transform: translateX(100);
 	}
 }
-
+*/
 .weapText
 {
 	color: #684E24;
@@ -241,6 +241,62 @@ p
 .secRow
 {
 	margin-top: 1.9vw;
+}
+
+#aBtn
+{
+	font-family: Comic Sans MS;
+	color: #684E24;
+	position: relative;
+	font-size: 1.4vw;
+	font-weight: bold;
+	border-width: 0.25vw;
+	background-color: #D1AF7A;
+	border-color: #684E24;
+	margin-top: 8%;
+	margin-left: 3%;
+}
+
+#aBtn:hover
+{
+	color: #5F451B;
+	border-color: #5F451B;
+	background-color: #BC9A64;
+}
+
+#aBtn:active
+{
+	color: #5F451B;
+	border-color: #5F451B;
+	background-color: #B28E56;
+}
+
+#dBtn
+{
+	font-family: Comic Sans MS;
+	color: #684E24;
+	position: relative;
+	font-size: 1.4vw;
+	font-weight: bold;
+	border-width: 0.25vw;
+	background-color: #D1AF7A;
+	border-color: #684E24;
+	margin-top: 8%;
+	margin-left: 3%;
+}
+
+#dBtn:hover
+{
+	color: #5F451B;
+	border-color: #5F451B;
+	background-color: #BC9A64;
+}
+
+#dBtn:active
+{
+	color: #5F451B;
+	border-color: #5F451B;
+	background-color: #B28E56;
 }
 
 #roseI

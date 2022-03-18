@@ -17,8 +17,8 @@ $('#default').show();
 let player = [0,0,0,0];
 let enemy = [0,0];
 let time = [0,0,0];
-let player[3];
 let battleReturn = 0;
+let con = 0; // continue bool
 player[1] = 30; // player hp
 
 switch(level[0])
@@ -49,6 +49,102 @@ switch(level[0])
 		break;
 }
 
+function enemyAttack()
+{
+	switch(level[0])
+	{
+	case 1:
+		$('#hit1').show();
+		break;
+	case 2:
+		$('#hit2').show();
+		break;
+	case 3:
+		$('#hit3').show();
+		break;
+	case 4:
+		$('#hit4').show();
+		break;
+	case 5:
+		$('#hit5').show();
+		break;
+	case 6:
+		$('#hit6').show();
+		break;
+	}
+	con = 1;
+}
+function dBattle3(b)
+{
+	$('.ddg').hide();
+	if(b == 1)
+	{
+		enemy[2] = 0;
+	}
+	else if(b == 2)
+	{
+		enemy[2] = 1;
+	}
+	else
+	{
+		enemy[2] = enemy[0];
+	}
+
+	switch(level[0])
+	{
+		case 1:
+			enemy[0] = 6; // enemy dmg
+			break;
+		case 2:
+			enemy[0] = 5;
+			break;
+		case 3:
+			enemy[0] = 7;
+			break;
+		case 4:
+			enemy[0] = 4;
+			break;
+		case 5:
+			enemy[0] = 8;
+			break;
+		case 6:
+			enemy[0] = 10;
+			break;
+	}
+	enemy[0] = enemy[0] - enemy[2];
+	enemyAttack();
+}
+function dBattle2()
+{
+	$('#dMark').removeClass('move').addClass('ddg');
+	time[0] = time[2] - time[1];
+
+	if (((time[0] < 150) || (time[0] > 1849)) || (time[0] > 849 && time[0] < 1150))
+	{
+		dBattle3(1);
+	}
+	else if (((time[0] > 149 && time[0] < 450) || (time[0] > 549 && time[0] < 850)) || ((time[0] > 1149 && time[0] < 1450) || (time[0] > 1549 && time[0] < 1850)))
+	{
+		dBattle3(2);
+	}
+	else if ((time[0] > 449 && time[0] < 550) || (time[0] > 1449 && time[0] < 1550))
+	{
+		dBattle3(3);
+	}
+}
+function dBattle()
+{
+	$('.ddg').show();
+
+	$('#dMark').removeClass('ddg').addClass('move');
+	time[1] = performance.now();
+}
+$('#dBbtn').on('click' , _ =>
+{
+	time[2] = performance.now();
+	dBattle2();
+});
+
 function setWeapDmg()
 {
 	switch(level[14])
@@ -78,8 +174,33 @@ function setWeapDmg()
 			break;
 	}
 	player[0] = player[0] - player[3];
+	con = 1;
 }
-
+function playerAttack()
+{
+	switch(level[14])
+	{
+	case 0:
+		$('#atk0').show();
+		break;
+	case 1:
+		$('#atk1').show();
+		break;
+	case 2:
+		$('#atk2').show();
+		break;
+	case 3:
+		$('#atk3').show();
+		break;
+	case 4:
+		$('#atk4').show();
+		break;
+	case 5:
+		$('#atk5').show();
+		break;
+	}
+	setWeapDmg();
+}
 function aBattle3(b)
 {
 	$('.atk').hide();
@@ -194,10 +315,10 @@ function aBattle3(b)
 			}
 			break;
 	}
+	playerAttack();
 }
 function aBattle2()
 {
-	$('#aMark').removeClass('move').addClass('atk');
 	time[0] = time[2] - time[1];
 
 	if (((time[0] < 150) || (time[0] > 1849)) || (time[0] > 849 && time[0] < 1150))
@@ -231,76 +352,8 @@ function aBattle()
 $('#aBbtn').on('click' , _ =>
 {
 	time[2] = performance.now();
+	$('#aMark').removeClass('move').addClass('atk');
 	aBattle2();
-});
-
-function dBattle3(b)
-{
-	if(b == 1)
-	{
-		enemy[2] = 0;
-	}
-	else if(b == 2)
-	{
-		enemy[2] = 1;
-	}
-	else
-	{
-		enemy[2] = enemy[0];
-	}
-
-	switch(level[0])
-	{
-		case 1:
-			enemy[0] = 6; // enemy dmg
-			break;
-		case 2:
-			enemy[0] = 5;
-			break;
-		case 3:
-			enemy[0] = 7;
-			break;
-		case 4:
-			enemy[0] = 4;
-			break;
-		case 5:
-			enemy[0] = 8;
-			break;
-		case 6:
-			enemy[0] = 10;
-			break;
-	}
-	enemy[0] = enemy[0] - enemy[2];
-}
-function dBattle2()
-{
-	$('#dMark').removeClass('move').addClass('ddg');
-	time[0] = time[2] - time[1];
-
-	if (((time[0] < 150) || (time[0] > 1849)) || (time[0] > 849 && time[0] < 1150))
-	{
-		dBattle3(1);
-	}
-	else if (((time[0] > 149 && time[0] < 450) || (time[0] > 549 && time[0] < 850)) || ((time[0] > 1149 && time[0] < 1450) || (time[0] > 1549 && time[0] < 1850)))
-	{
-		dBattle3(2);
-	}
-	else if ((time[0] > 449 && time[0] < 550) || (time[0] > 1449 && time[0] < 1550))
-	{
-		dBattle3(3);
-	}
-}
-function dBattle()
-{
-	$('.ddg').show();
-
-	$('#dMark').removeClass('ddg').addClass('move');
-	time[1] = performance.now();
-}
-$('#dBbtn').on('click' , _ =>
-{
-	time[2] = performance.now();
-	dBattle2();
 });
 
 
@@ -424,56 +477,24 @@ function setCurrent(a)
 	setInventory();
 }
 
-
-function playerAttack()
+function afterEnemyAtk()
 {
-	switch(level[14])
+	$('p').hide();
+	$('#next2').hide();
+
+	if (player[1] < 1)
 	{
-	case 0:
-		$('#atk0').show();
-		break;
-	case 1:
-		$('#atk1').show();
-		break;
-	case 2:
-		$('#atk2').show();
-		break;
-	case 3:
-		$('#atk3').show();
-		break;
-	case 4:
-		$('#atk4').show();
-		break;
-	case 5:
-		$('#atk5').show();
-		break;
+		$('#proceed').show();
+		$('#darken').show();
+		$('#death').show();
+	}
+	else
+	{
+		$('#andNow').show();
+		$('#attack').show();
+		$('#flee').show();	
 	}
 }
-function enemyAttack()
-{
-	switch(level[0])
-	{
-	case 1:
-		$('#hit1').show();
-		break;
-	case 2:
-		$('#hit2').show();
-		break;
-	case 3:
-		$('#hit3').show();
-		break;
-	case 4:
-		$('#hit4').show();
-		break;
-	case 5:
-		$('#hit5').show();
-		break;
-	case 6:
-		$('#hit6').show();
-		break;
-	}
-}
-
 function afterPlayerAtk()
 {
 	$('p').hide();
@@ -503,39 +524,23 @@ function afterPlayerAtk()
 		if(player[2] != 3 || level[14] != 2)
 		{
 			dBattle();
-			enemyAttack();
-
-			if (level[14] == 1 && enemy[0] > 0)
+			if(con = 1)
 			{
-				enemy[0]--;
-				$('#eff1').show();
+				if (level[14] == 1 && enemy[0] > 0)
+				{
+					enemy[0]--;
+					$('#eff1').show();
+				}
+				player[1] = player[1] - enemy[0];
+				$('#next2').show();
 			}
-			player[1] = player[1] - enemy[0];
+			con = 0;
 		}
 		else
 		{
 			$('#eff2').show();
+			$('#next2').show();
 		}
-
-		$('#next2').show();
-	}
-}
-function afterEnemyAtk()
-{
-	$('p').hide();
-	$('#next2').hide();
-
-	if (player[1] < 1)
-	{
-		$('#proceed').show();
-		$('#darken').show();
-		$('#death').show();
-	}
-	else
-	{
-		$('#andNow').show();
-		$('#attack').show();
-		$('#flee').show();	
 	}
 }
 
@@ -603,15 +608,18 @@ $('#attack').on('click' , _ =>
 	if(player[2] != 4 || level[14] != 3)
 	{
 		aBattle();
-		playerAttack();
-		setWeapDmg();
-		enemy[1] = enemy[1] - player[0];
+		if(con = 1)
+		{
+			enemy[1] = enemy[1] - player[0];
+			$('#next').show();
+		}
+		con = 0;
 	}
 	else
 	{
 		$('#eff3').show();
+		$('#next').show();
 	}
-	$('#next').show();
 });
 
 $('#next').on('click' , _ => 
