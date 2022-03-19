@@ -5,6 +5,20 @@
 </head>
 <body>
 
+	<img src="sprites/player.png" class="player" id="playerHand">
+	<img src="sprites/playerRose.png" class="player" id="playerRose">
+	<img src="sprites/playerBagguette.png" class="player" id="playerBagguette">
+	<img src="sprites/playerTea.png" class="player" id="playerTea">
+	<img src="sprites/playerBrush.png" class="player" id="playerBrush">
+	<img src="sprites/playerBottle.png" class="player" id="playerBottle">
+
+	<img src="sprites/lion.png" class="enemy" id="lion">
+	<img src="sprites/flamingo.png" class="enemy" id="flamingo">
+	<img src="sprites/unicorn.png" class="enemy" id="unicorn">
+	<img src="sprites/wolf.png" class="enemy" id="wolf">
+	<img src="sprites/bear.png" class="enemy" id="bear">
+	<img src="sprites/bitler.png" class="enemy" id="bitler">
+
 	<div id="darken"></div>
 	<div class="window" id="weapW">
 		<div id="hand">
@@ -35,7 +49,7 @@
 		<div id="bottle">
 			<img src="sprites/bottle.png" class="item" id="bottleI"></img>
 			<p class="weapText">Name: Broken glass bottle</p>
-			<p class="weapText" id="srow">Max DMG: 8</p>
+			<p class="weapText" id="trow">Max DMG: 8</p>
 		</div>
 	</div>
 	<div class="actionW" id="action">
@@ -83,7 +97,7 @@
 			<button class="option" id="flee">Flee</button>
 			<button class="option" id="proceed">Proceed</button>
 		</a>
-		<button class="option" id="weapS">Select another weapon</button>
+		<button class="option" id="weapS">Select weapon</button>
 	</div>
 
 	<img src="sprites/hp1.png" class="hpPlayer" id="hp1p">
@@ -92,6 +106,7 @@
 	<img src="sprites/hp4.png" class="hpPlayer" id="hp4p">
 	<img src="sprites/hp5.png" class="hpPlayer" id="hp5p">
 	<img src="sprites/hpFull.png" class="hpPlayer" id="hp6p">
+	<p id="playerHpText">Monument Hunter</p>
 
 	<img src="sprites/hp1.png" class="hpEnemy" id="hp1e">
 	<img src="sprites/hp2.png" class="hpEnemy" id="hp2e">
@@ -99,6 +114,12 @@
 	<img src="sprites/hp4.png" class="hpEnemy" id="hp4e">
 	<img src="sprites/hp5.png" class="hpEnemy" id="hp5e">
 	<img src="sprites/hpFull.png" class="hpEnemy" id="hp6e">
+	<p class="hpText" id="LionHpText">Lion</p>
+	<p class="hpText" id="FlamingoHpText">Flamingo</p>
+	<p class="hpText" id="UnicornHpText">Unicorn</p>
+	<p class="hpText" id="WolfHpText">Wolf</p>
+	<p class="hpText" id="BearHpText">Polar Bear</p>
+	<p class="hpText" id="BitlerHpText">Bitler</p>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="scripts/Country.js"></script>

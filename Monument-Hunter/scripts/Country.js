@@ -11,6 +11,13 @@ $('#darken').hide();
 $('#weapW').hide();
 $('.atk').hide();
 $('.ddg').hide();
+$('.enemy').hide();
+$('.player').hide();
+$('#playerHand').show();
+$('.hpText').hide();
+$('#playerHpText').show();
+$('#playerHpText').css('display:block !important'); // fix pls
+
 
 $('p').hide();
 $('.weapText').show();
@@ -31,36 +38,73 @@ switch(level[0])
 {
 	case 1:
 		$("body").addClass('bgBg');
+		$('#lion').show();
+		$('#LionHpText').show();
 		enemy[1] = 15; // enemy hp
 		hpMult = 4;
 		break;
 	case 2:
 		$("body").addClass('bgFr');
+		$('#flamingo').show();
+		$('#FlamingoHpText').show();
 		enemy[1] = 10;
 		hpMult = 6;
 		break;
 	case 3:
 		$("body").addClass('bgUk');
+		$('#unicorn').show();
+		$('#UnicornHpText').show();
 		enemy[1] = 20;
 		hpMult = 3;
 		break;
 	case 4:
 		$("body").addClass('bgIt');
+		$('#wolf').show();
+		$('#WolfHpText').show();
 		enemy[1] = 15;
 		hpMult = 4;
 		break;
 	case 5:
 		$("body").addClass('bgRu');
+		$('#bear').show();
+		$('#BearHpText').show();
 		enemy[1] = 25;
 		hpMult = 2.4;
 		break;
 	case 6:
 		$("body").addClass('bgGe');
+		$('#bitler').show();
+		$('#BitlerHpText').show();
 		enemy[1] = 50;
 		hpMult = 1.2;
 		break;
 }
 
+function enemyAttack()
+{
+	switch(level[0])
+	{
+	case 1:
+		$('#hit1').show();
+		break;
+	case 2:
+		$('#hit2').show();
+		break;
+	case 3:
+		$('#hit3').show();
+		break;
+	case 4:
+		$('#hit4').show();
+		break;
+	case 5:
+		$('#hit5').show();
+		break;
+	case 6:
+		$('#hit6').show();
+		break;
+	}
+	$('#next2').show();
+}
 function setPlayerHpBar(h)
 {
 	$('.hpPlayer').hide();
@@ -88,62 +132,7 @@ function setPlayerHpBar(h)
 	{
 		$('#hp6p').show();
 	}
-}
-function setEnemyHpBar(h)
-{
-	let hp = h * hpMult;
-
-	$('.hpEnemy').hide();
-	if(h < 6)
-	{
-		$('#hp1e').show();
-	}
-	else if(h < 11)
-	{
-		$('#hp2e').show();
-	}
-	else if(h < 16)
-	{
-		$('#hp3e').show();
-	}
-	else if(h < 21)
-	{
-		$('#hp4e').show();
-	}
-	else if(h < 26)
-	{
-		$('#hp5e').show();
-	}
-	else
-	{
-		$('#hp6e').show();
-	}
-}
-
-function enemyAttack()
-{
-	switch(level[0])
-	{
-	case 1:
-		$('#hit1').show();
-		break;
-	case 2:
-		$('#hit2').show();
-		break;
-	case 3:
-		$('#hit3').show();
-		break;
-	case 4:
-		$('#hit4').show();
-		break;
-	case 5:
-		$('#hit5').show();
-		break;
-	case 6:
-		$('#hit6').show();
-		break;
-	}
-	$('#next2').show();
+	enemyAttack();
 }
 function dBattle3(b)
 {
@@ -184,21 +173,28 @@ function dBattle3(b)
 			break;
 	}
 	enemy[0] = enemy[0] - enemy[2];
-	enemyAttack();
+
+	if (level[14] == 1 && enemy[0] > 0)
+	{
+		enemy[0]--;
+		$('#eff1').show();
+	}
+	player[1] = player[1] - enemy[0];
+	setPlayerHpBar(player[1]);
 }
 function dBattle2()
 {
 	time[0] = time[2] - time[1];
 
-	if (((time[0] < 250) || (time[0] > 1749)) || (time[0] > 749 && time[0] < 1250))
+	if ((time[0] < 250) || (time[0] > 749))
 	{
 		dBattle3(1);
 	}
-	else if (((time[0] > 249 && time[0] < 450) || (time[0] > 549 && time[0] < 750)) || ((time[0] > 1249 && time[0] < 1450) || (time[0] > 1549 && time[0] < 1750)))
+	else if ((time[0] > 249 && time[0] < 450) || (time[0] > 549 && time[0] < 750))
 	{
 		dBattle3(2);
 	}
-	else if ((time[0] > 449 && time[0] < 550) || (time[0] > 1449 && time[0] < 1550))
+	else if (time[0] > 449 && time[0] < 550)
 	{
 		dBattle3(3);
 	}
@@ -213,10 +209,71 @@ function dBattle()
 $('#dBtn').on('click' , _ => 
 {
 	time[2] = performance.now();
+	con = 1;
 	$('#dMark').removeClass('move').addClass('ddg');
 	dBattle2();
 });
 
+function playerAttack()
+{
+	switch(level[14])
+	{
+	case 0:
+		$('#atk0').show();
+		break;
+	case 1:
+		$('#atk1').show();
+		break;
+	case 2:
+		$('#atk2').show();
+		break;
+	case 3:
+		$('#atk3').show();
+		break;
+	case 4:
+		$('#atk4').show();
+		break;
+	case 5:
+		$('#atk5').show();
+		break;
+	}
+	$('#next').show();
+}
+function setEnemyHpBar(h)
+{
+	let hp = h * hpMult;
+
+	$('.hpEnemy').hide();
+	if(hp < 1)
+	{
+		$('.hpEnemy').hide();
+	}
+	else if(hp < 6)
+	{
+		$('#hp1e').show();
+	}
+	else if(hp < 11)
+	{
+		$('#hp2e').show();
+	}
+	else if(hp < 16)
+	{
+		$('#hp3e').show();
+	}
+	else if(hp < 21)
+	{
+		$('#hp4e').show();
+	}
+	else if(hp < 26)
+	{
+		$('#hp5e').show();
+	}
+	else
+	{
+		$('#hp6e').show();
+	}
+	playerAttack();
+}
 function setWeapDmg()
 {
 	switch(level[14])
@@ -246,34 +303,9 @@ function setWeapDmg()
 			break;
 	}
 	player[0] = player[0] - player[3];
-	console.log(6);
-	$('#next').show();
-}
-function playerAttack()
-{
-	switch(level[14])
-	{
-	case 0:
-		$('#atk0').show();
-		break;
-	case 1:
-		$('#atk1').show();
-		break;
-	case 2:
-		$('#atk2').show();
-		break;
-	case 3:
-		$('#atk3').show();
-		break;
-	case 4:
-		$('#atk4').show();
-		break;
-	case 5:
-		$('#atk5').show();
-		break;
-	}
-	console.log(5);
-	setWeapDmg();
+
+	enemy[1] = enemy[1] - player[0];
+	setEnemyHpBar(enemy[1]);
 }
 function aBattle3(b)
 {
@@ -390,30 +422,28 @@ function aBattle3(b)
 			}
 			break;
 	}
-	console.log(4);
-	playerAttack();
+	setWeapDmg();
 }
 function aBattle2()
 {
 	time[0] = time[2] - time[1];
-	console.log(3);
-	if (((time[0] < 150) || (time[0] > 1849)) || (time[0] > 849 && time[0] < 1150))
+	if ((time[0] < 150) || (time[0] > 849))
 	{
 		aBattle3(1);
 	}
-	else if (((time[0] > 149 && time[0] < 250) || (time[0] > 549 && time[0] < 650)) || ((time[0] > 1149 && time[0] < 1250) || (time[0] > 1549 && time[0] < 1650)))
+	else if ((time[0] > 149 && time[0] < 250) || (time[0] > 549 && time[0] < 650))
 	{
 		aBattle3(2);
 	}
-	else if (((time[0] > 249 && time[0] < 350) || (time[0] > 649 && time[0] < 750)) || ((time[0] > 1249 && time[0] < 1350) || (time[0] > 1649 && time[0] < 1750)))
+	else if ((time[0] > 249 && time[0] < 350) || (time[0] > 649 && time[0] < 750))
 	{
 		aBattle3(3);
 	}
-	else if (((time[0] > 349 && time[0] < 450) || (time[0] > 749 && time[0] < 850)) || ((time[0] > 1349 && time[0] < 1450) || (time[0] > 1749 && time[0] < 1850)))
+	else if ((time[0] > 349 && time[0] < 450) || (time[0] > 749 && time[0] < 850))
 	{
 		aBattle3(4);
 	}
-	else if ((time[0] > 449 && time[0] < 550) || (time[0] > 1449 && time[0] < 1550))
+	else if (time[0] > 449 && time[0] < 550)
 	{
 		aBattle3(5);
 	}
@@ -430,6 +460,7 @@ function aBattle()
 $('#aBtn').on('click' , _ => 
 {
 	time[2] = performance.now();
+	con = 1;
 	$('#aMark').removeClass('move').addClass('atk');
 	aBattle2();
 });
@@ -523,31 +554,37 @@ function setCurrent(a)
 	let n = level[14] + 7;
 	level[n] = level[13];
 	level[14] = a;
-
+	$('.player').hide();
 	switch(level[14])
 	{
 	case 0:
-		level[7] = 2;
 		$('#hand').addClass('current');
+		$("#playerHand").show();
+		level[7] = 2;
 		break;
 	case 1:
 		$('#rose').addClass('current');
+		$("#playerRose").show();
 		level[8] = 2;
 		break;
 	case 2:
 		$('#bagguette').addClass('current');
+		$("#playerBagguette").show();
 		level[9] = 2;
 		break;
 	case 3:
 		$('#tea').addClass('current');
+		$("#playerTea").show();
 		level[10] = 2;
 		break;
 	case 4:
 		$('#brush').addClass('current');
+		$("#playerBrush").show();
 		level[11] = 2;
 		break;
 	case 5:
 		$('#bottle').addClass('current');
+		$("#playerBottle").show();
 		level[12] = 2;
 		break;
 	}
@@ -564,6 +601,8 @@ function afterEnemyAtk()
 		$('#darken').show();
 		$('#death').show();
 		$('.hpPlayer').hide();
+		$('#player').hide();
+		$('#playerHpText').hide();
 	}
 	else
 	{
@@ -585,7 +624,8 @@ function afterPlayerAtk()
 		$('#darken').show();
 		$('.weapText').show();
 		$('#congrats').show();
-		$('.hpEnemy').hide();
+		$('.enemy').hide();
+		$('.hpText').hide();
 
 		let n = level[0] + 7;
 		level[n] = 1;
@@ -600,13 +640,6 @@ function afterPlayerAtk()
 		if(player[2] != 3 || level[14] != 2)
 		{
 			dBattle();
-			if (level[14] == 1 && enemy[0] > 0)
-			{
-				enemy[0]--;
-				$('#eff1').show();
-			}
-			player[1] = player[1] - enemy[0];
-			setPlayerHpBar(player[1]);
 		}
 		else
 		{
@@ -679,14 +712,11 @@ $('#attack').on('click' , _ =>
 	if(player[2] != 4 || level[14] != 3)
 	{
 		aBattle();
-		enemy[1] = enemy[1] - player[0];
-		setEnemyHpBar(enemy[1]);
 	}
 	else
 	{
 		$('#eff3').show();
 	}
-	
 });
 
 $('#next').on('click' , _ => 

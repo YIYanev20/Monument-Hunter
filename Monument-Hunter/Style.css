@@ -16,7 +16,7 @@ p
 
 .move
 {
-	animation: markAn 1s linear forwards 2 alternate;
+	animation: markAn 1s linear forwards;
 }
 @keyframes markAn
 {
@@ -27,21 +27,21 @@ p
 
 	to
 	{
-		transform: translateX(6850%);
+		transform: translateX(7150%);
 	}
 }
 
 .weapText
 {
 	color: #684E24;
-	font-size: 0.7vw;
+	font-size: 0.9vw;
 }
 
 .item
 {
-	height: 7.5vw;
-	width: 6vw;
-	margin-left: 2vw;
+	height: 12vw;
+	width: 9vw;
+	margin-left: 0.4vw;
 }
 
 .option
@@ -155,10 +155,10 @@ p
 	border-color: #684E24;
 	border-width: 0.3vw;
 	border-radius: 1.5vw;
-	margin-left: 0.75vw;
-	margin-top: 0.75vw;
-	padding-left: 0.25vw;
-	padding-top: 0.25vw;
+	margin-left: 0.5vw;
+	margin-top: 0.5vw;
+	padding-left: 0.5vw;
+	padding-top: 0.5vw;
 }
 
 .weap:hover
@@ -185,10 +185,10 @@ p
 	border-color: #B18C51;
 	border-width: 0.3vw;
 	border-radius: 1.5vw;
-	margin-left: 0.75vw;
-	margin-top: 0.75vw;
-	padding-left: 0.25vw;
-	padding-top: 0.25vw;
+	margin-left: 0.5vw;
+	margin-top: 0.5vw;
+	padding-left: 0.5vw;
+	padding-top: 0.5vw;
 }
 
 .window
@@ -214,8 +214,10 @@ p
 	border-color: #503C1B;
 	border-width: 0.6vw;
 	border-radius: 1.5vw;
-	margin-left: 0.75vw;
-	margin-top: 0.75vw;
+	margin-left: 0.5vw;
+	margin-top: 0.5vw;
+	padding-left: 0vw;
+	padding-top: 0vw;
 }
 
 .current:hover
@@ -250,9 +252,9 @@ p
 	background-color: #80602D;
 	border:0.3vw solid #B18C51;	
 	position: absolute;
-	margin-left: 17.5%;
+	margin-left: 17.5vw;
 	border-radius: 1.5vw;
-	margin-top: 47%;
+	margin-top: 47vw;
 }
 
 .barW
@@ -283,6 +285,40 @@ p
 	position: absolute;
 	margin-top: 50vw;
 	margin-left: 85vw;
+}
+
+.enemy
+{
+	position: absolute;
+	margin-top: 5vw;
+	margin-left: 80vw;
+}
+
+.hpText
+{
+	margin-top: 50vw;
+	margin-left: 85.5vw;
+	font-size: 1.3vw;
+	color: white;
+}
+
+.player
+{
+	position: absolute;
+	margin-top: 15vw;
+	margin-left: 2vw;
+}
+
+#unicorn
+{
+	margin-left: 68vw;
+}
+
+#playerHpText
+{
+	margin-top: 50vw;
+	margin-left: 2.5vw;
+	color: white;
 }
 
 #aMark
@@ -379,30 +415,30 @@ p
 
 #roseI
 {
-	width: 3vw;
-	margin-left: 3.5vw;
+	width: 5vw;
+	margin-left: 2.4vw;
 }
 
 #teaI
 {
-	width: 8vw;
-	margin-left: 1vw;
+	width: 9vw;
+	height: 10vw;
 }
 
 #bottleI
 {
-	width: 7vw;
-	margin-left: 1.5vw;
+	width: 8vw;
+	height: 9vw;
 }
 
 #srow
 {
-	margin-top: 1vw;
+	margin-top: 1.2vw;
 }
 
 #trow
 {
-	margin-top: 2vw;
+	margin-top: 2.4vw;
 }
 
 #darken
