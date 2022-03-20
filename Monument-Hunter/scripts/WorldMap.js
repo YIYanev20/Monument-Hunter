@@ -14,6 +14,7 @@ function close()
 	$('#darkMenu').attr("id", "mainMenu");
 	$('#objective').show();
 	$('.cname').show();
+	$('.disabled').show();
 }
 
 function next(a)
@@ -55,6 +56,7 @@ if(level[15] == 0)
 	$('#mainMenu').show();
 	$('#mainMenu').attr("id", "darkMenu");
 	$('#objective').hide();
+	$('.disabled').hide();
 }
 
 $('#next0').on('click', _ => 
