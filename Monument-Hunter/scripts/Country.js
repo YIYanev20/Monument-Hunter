@@ -27,18 +27,56 @@ $('.hpEnemy').hide();
 $('#hp6e').show();
 
 let player = [0,0,0,0];
-let enemy = [0,0];
+let enemy = [0,0,0,0];
 let time = [0,0,0];
 let hpMult;
 player[1] = 30; // player hp
 
+function setPlayer()
+{
+	$('.player').hide();
+	switch(level[14])
+	{
+	case 0:
+		$('#hand').addClass('current');
+		$("#playerHand").show();
+		level[7] = 2;
+		break;
+	case 1:
+		$('#rose').addClass('current');
+		$("#playerRose").show();
+		level[8] = 2;
+		break;
+	case 2:
+		$('#bagguette').addClass('current');
+		$("#playerBagguette").show();
+		level[9] = 2;
+		break;
+	case 3:
+		$('#tea').addClass('current');
+		$("#playerTea").show();
+		level[10] = 2;
+		break;
+	case 4:
+		$('#brush').addClass('current');
+		$("#playerBrush").show();
+		level[11] = 2;
+		break;
+	case 5:
+		$('#bottle').addClass('current');
+		$("#playerBottle").show();
+		level[12] = 2;
+		break;
+	}
+}
+setPlayer();
 switch(level[0])
 {
 	case 1:
 		$('#lion').show();
 		$('#LionHpText').show();
-		enemy[1] = 15; // enemy hp
-		hpMult = 4;
+		enemy[1] = 25; // enemy hp
+		hpMult = 2.4;
 		break;
 	case 2:
 		$('#flamingo').show();
@@ -61,8 +99,8 @@ switch(level[0])
 	case 5:
 		$('#bear').show();
 		$('#BearHpText').show();
-		enemy[1] = 25;
-		hpMult = 2.4;
+		enemy[1] = 35;
+		hpMult = 1.7;
 		break;
 	case 6:
 		$('#bitler').show();
@@ -130,19 +168,7 @@ function dBattle3(b)
 {
 	$('.ddg').hide();
 	$('#action').removeClass('barW').addClass('actionW');
-	if(b == 1)
-	{
-		enemy[2] = 0;
-	}
-	else if(b == 2)
-	{
-		enemy[2] = 1;
-	}
-	else
-	{
-		enemy[2] = enemy[0];
-	}
-
+	
 	switch(level[0])
 	{
 		case 1:
@@ -164,6 +190,20 @@ function dBattle3(b)
 			enemy[0] = 10;
 			break;
 	}
+
+	if(b == 1)
+	{
+		enemy[2] = 0;
+	}
+	else if(b == 2)
+	{
+		enemy[2] = 1;
+	}
+	else
+	{
+		enemy[2] = enemy[0];
+	}
+
 	enemy[0] = enemy[0] - enemy[2];
 
 	if (level[14] == 1 && enemy[0] > 0)
@@ -240,23 +280,23 @@ function setEnemyHpBar(h)
 	{
 		$('.hpEnemy').hide();
 	}
-	else if(hp < 6)
+	else if(hp < 11)
 	{
 		$('#hp1e').show();
 	}
-	else if(hp < 11)
+	else if(hp < 21)
 	{
 		$('#hp2e').show();
 	}
-	else if(hp < 16)
+	else if(hp < 31)
 	{
 		$('#hp3e').show();
 	}
-	else if(hp < 21)
+	else if(hp < 41)
 	{
 		$('#hp4e').show();
 	}
-	else if(hp < 26)
+	else if(hp < 51)
 	{
 		$('#hp5e').show();
 	}
@@ -546,41 +586,15 @@ function setCurrent(a)
 	let n = level[14] + 7;
 	level[n] = level[13];
 	level[14] = a;
-	$('.player').hide();
-	switch(level[14])
-	{
-	case 0:
-		$('#hand').addClass('current');
-		$("#playerHand").show();
-		level[7] = 2;
-		break;
-	case 1:
-		$('#rose').addClass('current');
-		$("#playerRose").show();
-		level[8] = 2;
-		break;
-	case 2:
-		$('#bagguette').addClass('current');
-		$("#playerBagguette").show();
-		level[9] = 2;
-		break;
-	case 3:
-		$('#tea').addClass('current');
-		$("#playerTea").show();
-		level[10] = 2;
-		break;
-	case 4:
-		$('#brush').addClass('current');
-		$("#playerBrush").show();
-		level[11] = 2;
-		break;
-	case 5:
-		$('#bottle').addClass('current');
-		$("#playerBottle").show();
-		level[12] = 2;
-		break;
-	}
+	
+	setPlayer();
 	setInventory();
+
+	if(enemy[3] == 1)
+	{
+		let lvl = level;
+		localStorage.setItem("lvl", JSON.stringify(lvl));
+	}
 }
 
 function afterEnemyAtk()
@@ -619,13 +633,10 @@ function afterPlayerAtk()
 		$('.enemy').hide();
 		$('.hpText').hide();
 
-		let n = level[0] + 7;
-		level[n] = 1;
-
+		let m = level[0] + 7;
+		level[m] = 1;
+		enemy[3] = 1;
 		setCurrent(level[14]);
-
-		let lvl = level;
-		localStorage.setItem("lvl", JSON.stringify(lvl));
 	}
 	else
 	{
