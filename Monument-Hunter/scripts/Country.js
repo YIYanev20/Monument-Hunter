@@ -371,30 +371,24 @@ function aBattle3(b)
 {
 	$('.atk').hide();
 	$('#action').removeClass('barW').addClass('actionW');
-	console.log(b);
 	switch(level[14])
 	{
 		case 0:
-			console.log("case weap");
-			switch(b)
+			if(b == 1)
 			{
-				case 1:
-					console.log("case 1");
-					player[3] = 3;
-					break;
-				case 2:
-					player[3] = 2;
-					break;
-				case 3:
-					player[3] = 2;
-					break;
-				case 4:
-					player[3] = 1;
-					break;
-				case 5:
-					console.log("case 5");
-					player[3] = 0;
-					break;
+				player[3] = 6;
+			}
+			else if(b == 2 || b == 3)
+			{
+				player[3] = 4;
+			}
+			else if(b == 4)
+			{
+				player[3] = 2;
+			}
+			else
+			{
+				player[3] = 0;
 			}
 			break;
 		case 1:
@@ -488,7 +482,6 @@ function aBattle3(b)
 			}
 			break;
 	}
-	console.log(player[3]);
 	setWeapDmg();
 }
 function aBattle2()
