@@ -307,6 +307,8 @@ p
 	position: absolute;
 	margin-top: 15vw;
 	margin-left: 2vw;
+	height: 30.3vw;
+	width: 15.2vw;
 }
 
 #unicorn
@@ -540,40 +542,4 @@ p
 	margin-left: 41%;
 	margin-top: 26.5%;
 	font-size: 1.6vw;
-}
-
-.bgBg
-{
-	background: url(./images/bgBg.jpg) no-repeat left top;
-	background-size: 100%;
-}
-
-.bgFr
-{
-	background: url(./images/bgFr.jpg) no-repeat left top;
-	background-size: 100%;
-}
-
-.bgUk
-{
-	background: url(./images/bgUk.jpg) no-repeat left top;
-	background-size: 100%;
-}
-
-.bgIt
-{
-	background: url(./images/bgIt.jpg) no-repeat left top;
-	background-size: 100%;
-}
-
-.bgRu
-{
-	background: url(./images/bgRu.jpg) no-repeat left top;
-	background-size: 100%;
-}
-
-.bgGe
-{
-	background: url(./images/bgGe.jpg) no-repeat left top;
-	background-size: 100%;
 }

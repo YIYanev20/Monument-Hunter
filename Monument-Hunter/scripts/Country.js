@@ -15,11 +15,9 @@ $('.enemy').hide();
 $('.player').hide();
 $('#playerHand').show();
 $('.hpText').hide();
-$('#playerHpText').show();
-$('#playerHpText').css('display:block !important'); // fix pls
+$('.inText').hide();
+$('.secRow').hide();
 
-
-$('p').hide();
 $('.weapText').show();
 $('#default').show();
 
@@ -37,42 +35,36 @@ player[1] = 30; // player hp
 switch(level[0])
 {
 	case 1:
-		$("body").addClass('bgBg');
 		$('#lion').show();
 		$('#LionHpText').show();
 		enemy[1] = 15; // enemy hp
 		hpMult = 4;
 		break;
 	case 2:
-		$("body").addClass('bgFr');
 		$('#flamingo').show();
 		$('#FlamingoHpText').show();
 		enemy[1] = 10;
 		hpMult = 6;
 		break;
 	case 3:
-		$("body").addClass('bgUk');
 		$('#unicorn').show();
 		$('#UnicornHpText').show();
 		enemy[1] = 20;
 		hpMult = 3;
 		break;
 	case 4:
-		$("body").addClass('bgIt');
 		$('#wolf').show();
 		$('#WolfHpText').show();
 		enemy[1] = 15;
 		hpMult = 4;
 		break;
 	case 5:
-		$("body").addClass('bgRu');
 		$('#bear').show();
 		$('#BearHpText').show();
 		enemy[1] = 25;
 		hpMult = 2.4;
 		break;
 	case 6:
-		$("body").addClass('bgGe');
 		$('#bitler').show();
 		$('#BitlerHpText').show();
 		enemy[1] = 50;
@@ -593,7 +585,7 @@ function setCurrent(a)
 
 function afterEnemyAtk()
 {
-	$('p').hide();
+	$('.inText').hide();
 
 	if (player[1] < 1)
 	{
@@ -613,7 +605,7 @@ function afterEnemyAtk()
 }
 function afterPlayerAtk()
 {
-	$('p').hide();
+	$('.inText').hide();
 
 	if(enemy[1] < 1)
 	{
@@ -706,7 +698,7 @@ $('#attack').on('click' , _ =>
 	$('#attack').hide();
 	$('#flee').hide();
 	$('#weapS').hide();
-	$('p').hide();
+	$('.inText').hide();
 	player[2]++;
 
 	if(player[2] != 4 || level[14] != 3)
