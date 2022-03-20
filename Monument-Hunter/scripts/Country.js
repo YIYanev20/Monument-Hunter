@@ -17,6 +17,7 @@ $('.hpText').hide();
 $('.inText').hide();
 $('.secRow').hide();
 $('#res').hide();
+$('#win').hide();
 
 $('.weapText').show();
 $('#default').show();
@@ -26,7 +27,7 @@ $('#hp6p').show();
 $('.hpEnemy').hide();
 $('#hp6e').show();
 
-let player = [0,0,0,0];
+let player = [0,0,0,0,0];
 let enemy = [0,0,0,0];
 let time = [0,0,0];
 let hpMult;
@@ -225,7 +226,7 @@ function dBattle3(b)
 
 	enemy[0] = enemy[0] - enemy[2];
 
-	if (level[14] == 1 && enemy[0] > 0)
+	if (level[14] == 1)
 	{
 		enemy[0]--;
 		$('#eff1').show();
@@ -260,7 +261,6 @@ function dBattle()
 $('#dBtn').on('click' , _ => 
 {
 	time[2] = performance.now();
-	con = 1;
 	$('#dMark').removeClass('move').addClass('ddg');
 	dBattle2();
 });
@@ -358,7 +358,7 @@ function setWeapDmg()
 			break;
 		case 4:
 			player[0] = 4;
-			if(player[2] == 2)
+			if(player[2] % 2 == 0)
 			{
 				player[0] = 9;
 				$('#eff4').show();
@@ -526,7 +526,6 @@ function aBattle()
 $('#aBtn').on('click' , _ => 
 {
 	time[2] = performance.now();
-	con = 1;
 	$('#aMark').removeClass('move').addClass('atk');
 	aBattle2();
 });
@@ -684,14 +683,14 @@ function afterPlayerAtk()
 	}
 	else
 	{
-		if(player[2] != 3 || level[14] != 2)
-		{
-			dBattle();
+		if(player[2] % 3 == 0 && level[14] == 2)
+		{			
+			$('#eff2').show();
+			$('#next2').show();
 		}
 		else
 		{
-			$('#eff2').show();
-			$('#next2').show();
+			dBattle();
 		}
 	}
 }
@@ -757,14 +756,14 @@ $('#attack').on('click' , _ =>
 	$('.inText').hide();
 	player[2]++;
 
-	if(player[2] != 4 || level[14] != 3)
-	{
-		aBattle();
+	if(player[2] % 4 == 0 && level[14] == 3)
+	{		
+		$('#eff3').show();
+		$('#next').show();
 	}
 	else
 	{
-		$('#eff3').show();
-		$('#next').show();
+		aBattle();
 	}
 });
 
