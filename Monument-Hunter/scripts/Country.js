@@ -175,7 +175,6 @@ function setPlayerHpBar(h)
 	{
 		$('#hitN').show();
 	}
-	$('#next2').show();
 }
 function dBattle3(b)
 {
@@ -331,7 +330,6 @@ function setEnemyHpBar(h)
 	{
 		$('#atkN').show();
 	}
-	$('#next').show();
 }
 function setWeapDmg()
 {
@@ -627,6 +625,7 @@ function setCurrent(a)
 function afterEnemyAtk()
 {
 	$('.inText').hide();
+	$('.secRow').hide();
 
 	if (player[1] < 1)
 	{
@@ -647,23 +646,32 @@ function afterEnemyAtk()
 function afterPlayerAtk()
 {
 	$('.inText').hide();
+	$('.secRow').hide();
 
 	if(enemy[1] < 1)
 	{
-		level[level[0]] = 6
-
-		$('#proceed').show();
-		$('#weapW').show();
-		$('#darken').show();
-		$('.weapText').show();
-		$('#congrats').show();
 		$('.enemy').hide();
 		$('.hpText').hide();
+		$('#darken').show();
 
-		let m = level[0] + 7;
-		level[m] = 1;
-		enemy[3] = 1;
-		setCurrent(level[14]);
+		if(level[0] == 6)
+		{
+			$('#win').show();
+			$('#res').show();
+		}
+		else
+		{
+			$('#proceed').show();
+			$('#weapW').show();
+			$('.weapText').show();
+			$('#congrats').show();			
+
+			level[level[0]] = 6
+			let m = level[0] + 7;
+			level[m] = 1;
+			enemy[3] = 1;
+			setCurrent(level[14]);
+		}
 	}
 	else
 	{
@@ -675,6 +683,7 @@ function afterPlayerAtk()
 		{
 			$('#eff2').show();
 		}
+		$('#next2').show();
 	}
 }
 
@@ -747,6 +756,7 @@ $('#attack').on('click' , _ =>
 	{
 		$('#eff3').show();
 	}
+	$('#next').show();
 });
 
 $('#next').on('click' , _ => 
