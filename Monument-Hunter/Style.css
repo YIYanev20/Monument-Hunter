@@ -421,6 +421,11 @@ p
 	height: 30.3vw;
 }
 
+#credits
+{
+	margin-top: 10%;
+}
+
 #unicorn
 {
 	margin-left: 68vw;
@@ -576,7 +581,7 @@ p
 
 #restart
 {
-	margin-top: 15%;
+	margin-top: 5%;
 }
 
 #win
