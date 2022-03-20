@@ -133,7 +133,12 @@ function enemyAttack()
 		$('#hit6').show();
 		break;
 	}
-	$('#next2').show();
+	
+	$('.player').removeClass('player').addClass('playerHit');
+	setTimeout(_ =>
+	{
+		$('.playerHit').removeClass('playerHit').addClass('player');
+	}, 1000);
 }
 function setPlayerHpBar(h)
 {
@@ -162,7 +167,16 @@ function setPlayerHpBar(h)
 	{
 		$('#hp6p').show();
 	}
-	enemyAttack();
+
+	if(enemy[0] > 0)
+	{
+		enemyAttack();
+	}
+	else
+	{
+		$('#hitN').show();
+	}
+	$('#next2').show();
 }
 function dBattle3(b)
 {
@@ -269,7 +283,12 @@ function playerAttack()
 		$('#atk5').show();
 		break;
 	}
-	$('#next').show();
+
+	$('.enemy').removeClass('enemy').addClass('enemyHit');
+	setTimeout(_ =>
+	{
+		$('.enemyHit').removeClass('enemyHit').addClass('enemy');
+	}, 1000);
 }
 function setEnemyHpBar(h)
 {
@@ -304,7 +323,16 @@ function setEnemyHpBar(h)
 	{
 		$('#hp6e').show();
 	}
-	playerAttack();
+
+	if(player[0] > 0)
+	{
+		playerAttack();
+	}
+	else
+	{
+		$('#atkN').show();
+	}
+	$('#next').show();
 }
 function setWeapDmg()
 {
@@ -343,24 +371,30 @@ function aBattle3(b)
 {
 	$('.atk').hide();
 	$('#action').removeClass('barW').addClass('actionW');
-	switch(player[14])
+	console.log(b);
+	switch(level[14])
 	{
 		case 0:
-			if(b == 1)
+			console.log("case weap");
+			switch(b)
 			{
-				player[3] = 3;
-			}
-			else if(b == 2 || b == 3)
-			{
-				player[3] = 2;
-			}
-			else if(b == 4)
-			{
-				player[3] = 1;
-			}
-			else
-			{
-				player[3] = 0;
+				case 1:
+					console.log("case 1");
+					player[3] = 3;
+					break;
+				case 2:
+					player[3] = 2;
+					break;
+				case 3:
+					player[3] = 2;
+					break;
+				case 4:
+					player[3] = 1;
+					break;
+				case 5:
+					console.log("case 5");
+					player[3] = 0;
+					break;
 			}
 			break;
 		case 1:
@@ -454,6 +488,7 @@ function aBattle3(b)
 			}
 			break;
 	}
+	console.log(player[3]);
 	setWeapDmg();
 }
 function aBattle2()
@@ -463,7 +498,7 @@ function aBattle2()
 	{
 		aBattle3(1);
 	}
-	else if ((time[0] > 149 && time[0] < 250) || (time[0] > 549 && time[0] < 650))
+	else if ((time[0] > 149 && time[0] < 250) || (time[0] > 749 && time[0] < 850))
 	{
 		aBattle3(2);
 	}
@@ -471,7 +506,7 @@ function aBattle2()
 	{
 		aBattle3(3);
 	}
-	else if ((time[0] > 349 && time[0] < 450) || (time[0] > 749 && time[0] < 850))
+	else if ((time[0] > 349 && time[0] < 450) || (time[0] > 549 && time[0] < 650))
 	{
 		aBattle3(4);
 	}

@@ -14,6 +14,117 @@ p
 	position: absolute;
 }
 
+.enemyHit
+{
+	position: absolute;
+	margin-top: 5vw;
+	margin-left: 80vw;
+	animation: enemyAn 0.5s linear forwards;
+}
+@keyframes enemyAn
+{
+	0%
+	{
+		transform: translateX(0%);
+	}
+
+	12.5%
+	{
+		transform: translateX(50%);
+	}
+
+	25%
+	{
+		transform: translateX(-45%);
+	}
+
+	37.5%
+	{
+		transform: translateX(35%);
+	}
+
+	50%
+	{
+		transform: translateX(-30%);
+	}
+
+	62.5%
+	{
+		transform: translateX(20%);
+	}
+
+	75%
+	{
+		transform: translateX(-15%);
+	}
+
+	87.5%
+	{
+		transform: translateX(5%);
+	}
+
+	100%
+	{
+		transform: translateX(0%);
+	}
+}
+
+.playerHit
+{
+	position: absolute;
+	margin-top: 15vw;
+	margin-left: 2vw;
+	height: 30.3vw;
+	animation: playerAn 0.5s linear forwards;
+}
+@keyframes playerAn
+{
+	0%
+	{
+		transform: translateX(0%);
+	}
+
+	12.5%
+	{
+		transform: translateX(50%);
+	}
+
+	25%
+	{
+		transform: translateX(-45%);
+	}
+
+	37.5%
+	{
+		transform: translateX(35%);
+	}
+
+	50%
+	{
+		transform: translateX(-30%);
+	}
+
+	62.5%
+	{
+		transform: translateX(20%);
+	}
+
+	75%
+	{
+		transform: translateX(-15%);
+	}
+
+	87.5%
+	{
+		transform: translateX(5%);
+	}
+
+	100%
+	{
+		transform: translateX(0%);
+	}
+}
+
 .move
 {
 	animation: markAn 1s linear forwards;
@@ -308,7 +419,6 @@ p
 	margin-top: 15vw;
 	margin-left: 2vw;
 	height: 30.3vw;
-	width: 15.2vw;
 }
 
 #unicorn
@@ -505,6 +615,11 @@ p
 {
 	margin-left: 23.95vw;
 	margin-top: 17.35vw;
+}
+
+#playerHand
+{
+	width: 15.2vw;
 }
 
 #playerRose
