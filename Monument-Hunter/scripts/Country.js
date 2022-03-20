@@ -101,7 +101,7 @@ switch(level[0])
 		$('#bear').show();
 		$('#BearHpText').show();
 		enemy[1] = 35;
-		hpMult = 0.77;
+		hpMult = 1.43;
 		break;
 	case 6:
 		$('#BITler').show();
@@ -635,7 +635,7 @@ function afterComplete()
 	$('#proceed').show();
 	$('#weapW').show();
 	$('.weapText').show();
-	$('#congrats').show();			
+	$('#congrats').show();
 
 	level[level[0]] = 6
 	let m = level[0] + 7;
@@ -671,7 +671,12 @@ function afterPlayerAtk()
 
 	if(enemy[1] < 1)
 	{
-		$('.enemy').hide();
+		$('#lion').hide();
+		$('#flamingo').hide();
+		$('#unicorn').hide();
+		$('#wolf').hide();
+		$('#bear').hide();
+		$('#BITler').hide();
 		$('.hpText').hide();
 		$('#darken').show();
 
