@@ -1,6 +1,5 @@
 $(document).ready( _ => {
 let level = JSON.parse(localStorage.lvl);
-console.log(level);
 
 $('#proceed').hide();
 $('#next').css('display:none !important');
