@@ -104,8 +104,8 @@ switch(level[0])
 		hpMult = 0.77;
 		break;
 	case 6:
-		$('#bitler').show();
-		$('#BitlerHpText').show();
+		$('#BITler').show();
+		$('#BITlerHpText').show();
 		enemy[1] = 50;
 		hpMult = 1;
 		break;
@@ -630,6 +630,19 @@ function setCurrent(a)
 	}
 }
 
+function afterComplete()
+{
+	$('#proceed').show();
+	$('#weapW').show();
+	$('.weapText').show();
+	$('#congrats').show();			
+
+	level[level[0]] = 6
+	let m = level[0] + 7;
+	level[m] = 1;
+	enemy[3] = 1;
+	setCurrent(level[14]);
+}
 function afterEnemyAtk()
 {
 	$('.inText').hide();
@@ -669,16 +682,7 @@ function afterPlayerAtk()
 		}
 		else
 		{
-			$('#proceed').show();
-			$('#weapW').show();
-			$('.weapText').show();
-			$('#congrats').show();			
-
-			level[level[0]] = 6
-			let m = level[0] + 7;
-			level[m] = 1;
-			enemy[3] = 1;
-			setCurrent(level[14]);
+			afterComplete();
 		}
 	}
 	else
