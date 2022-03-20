@@ -347,8 +347,9 @@ p
 
 .clickArea
 {
-	height: 100vh;
-	width: 100vw;
+	height: 100%;
+	width: 100%;
+	position: absolute;
 }
 
 .secRow
@@ -560,7 +561,7 @@ p
 
 #darken
 {
-	background-color: rgba(150,150,150,0.5);
+	background-color: rgba(0,0,0,0.5);
 	height: 100vh;
 	width: 100vw;
 	position: absolute;
@@ -579,6 +580,11 @@ p
 	height: 4.5vw;
 }
 
+#tutW
+{
+	height: 8vw;
+}
+
 #restart
 {
 	margin-top: 5%;
@@ -588,6 +594,19 @@ p
 {
 	margin-left: 5%;
 	margin-top: 2%;
+}
+
+#darkMenu
+{
+	margin-left: 5%;
+	margin-top: 2%;
+	color: #FFFFFF;
+	border-color: #FFFFFF;
+}
+#darkMenu:hover
+{
+	color: #CCCCCC;
+	border-color: #CCCCCC;
 }
 
 #rose

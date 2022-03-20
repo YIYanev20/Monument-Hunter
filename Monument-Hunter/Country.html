@@ -19,37 +19,65 @@
 	<img src="sprites/bear.png" class="enemy" id="bear">
 	<img src="sprites/bitler.png" class="enemy" id="bitler">
 
+	<img src="sprites/hp1.png" class="hpPlayer" id="hp1p">
+	<img src="sprites/hp2.png" class="hpPlayer" id="hp2p">
+	<img src="sprites/hp3.png" class="hpPlayer" id="hp3p">
+	<img src="sprites/hp4.png" class="hpPlayer" id="hp4p">
+	<img src="sprites/hp5.png" class="hpPlayer" id="hp5p">
+	<img src="sprites/hpFull.png" class="hpPlayer" id="hp6p">
+	<p id="playerHpText">Monument Hunter</p>
+
+	<img src="sprites/hp1.png" class="hpEnemy" id="hp1e">
+	<img src="sprites/hp2.png" class="hpEnemy" id="hp2e">
+	<img src="sprites/hp3.png" class="hpEnemy" id="hp3e">
+	<img src="sprites/hp4.png" class="hpEnemy" id="hp4e">
+	<img src="sprites/hp5.png" class="hpEnemy" id="hp5e">
+	<img src="sprites/hpFull.png" class="hpEnemy" id="hp6e">
+	<p class="hpText" id="LionHpText">Lion</p>
+	<p class="hpText" id="FlamingoHpText">Flamingo</p>
+	<p class="hpText" id="UnicornHpText">Unicorn</p>
+	<p class="hpText" id="WolfHpText">Wolf</p>
+	<p class="hpText" id="BearHpText">Polar Bear</p>
+	<p class="hpText" id="BitlerHpText">Bitler</p>
+
+	<div class="clickArea"></div>
 	<div id="darken"></div>
 	<div class="window" id="weapW">
 		<div id="hand">
 			<img src="sprites/hand.png" class="item"></img>
 			<p class="weapText">Name: Hand</p>
 			<p class="weapText" id="srow">Max DMG: 3</p>
+			<div class="clickArea"></div>
 		</div>
 		<div id="rose">
 			<img src="sprites/rose.png" class="item" id="roseI"></img>
 			<p class="weapText">Name: Bulgarian rose</p>
 			<p class="weapText" id="srow">Max DMG: 6</p>
+			<div class="clickArea"></div>
 		</div>
 		<div id="bagguette">
 			<img src="sprites/bagguette.png" class="item"></img>
 			<p class="weapText">Name: Bagguette</p>
 			<p class="weapText" id="srow">Max DMG: 5</p>
+			<div class="clickArea"></div>
 		</div>
 		<div id="tea">
 			<img src="sprites/tea.png" class="item" id="teaI"></img>
 			<p class="weapText">Name: Cup a' tea</p>
 			<p class="weapText" id="srow">Max DMG: 7</p>
+			<div class="clickArea"></div>
 		</div>
 		<div id="brush">
 			<img src="sprites/brush.png" class="item"></img>
 			<p class="weapText">Name: Paintbrush</p>
 			<p class="weapText" id="srow">Max DMG: 4</p>
+			<div class="clickArea"></div>
 		</div>
 		<div id="bottle">
 			<img src="sprites/bottle.png" class="item" id="bottleI"></img>
 			<p class="weapText">Name: Broken glass bottle</p>
 			<p class="weapText" id="trow">Max DMG: 8</p>
+			<div class="clickArea"></div>
 		</div>
 	</div>
 	<div class="actionW" id="action">
@@ -85,11 +113,15 @@
 		<p class="atk" id="aText">Click "Hit" when you think you're going to do the most damage. Remember the closer the marker is to the center, the more damage you will to do!</p>
 		<img src="sprites/aBar.png" class="atk" id="aBar">
 		<img src="sprites/mark.png" class="atk" id="aMark">
-		<button class="atk" id="aBtn">Hit</button>
+		
 
 		<p class="ddg" id="dText">Click "Dodge" when you think you're going to dodge. Remember the closer the marker is to the center, the more damage you will evade!</p>
 		<img src="sprites/dBar.png" class="ddg" id="dBar">
 		<img src="sprites/mark.png" class="ddg" id="dMark">
+
+		<div class="clickArea"></div>
+
+		<button class="atk" id="aBtn">Hit</button>
 		<button class="ddg" id="dBtn">Dodge</button>
 
 		<button class="option" id="next">Next</button>
@@ -104,27 +136,6 @@
 
 		<a href="LoadingScreen.html"><button class="option" id="res">Finish</button></a>
 	</div>
-
-	<img src="sprites/hp1.png" class="hpPlayer" id="hp1p">
-	<img src="sprites/hp2.png" class="hpPlayer" id="hp2p">
-	<img src="sprites/hp3.png" class="hpPlayer" id="hp3p">
-	<img src="sprites/hp4.png" class="hpPlayer" id="hp4p">
-	<img src="sprites/hp5.png" class="hpPlayer" id="hp5p">
-	<img src="sprites/hpFull.png" class="hpPlayer" id="hp6p">
-	<p id="playerHpText">Monument Hunter</p>
-
-	<img src="sprites/hp1.png" class="hpEnemy" id="hp1e">
-	<img src="sprites/hp2.png" class="hpEnemy" id="hp2e">
-	<img src="sprites/hp3.png" class="hpEnemy" id="hp3e">
-	<img src="sprites/hp4.png" class="hpEnemy" id="hp4e">
-	<img src="sprites/hp5.png" class="hpEnemy" id="hp5e">
-	<img src="sprites/hpFull.png" class="hpEnemy" id="hp6e">
-	<p class="hpText" id="LionHpText">Lion</p>
-	<p class="hpText" id="FlamingoHpText">Flamingo</p>
-	<p class="hpText" id="UnicornHpText">Unicorn</p>
-	<p class="hpText" id="WolfHpText">Wolf</p>
-	<p class="hpText" id="BearHpText">Polar Bear</p>
-	<p class="hpText" id="BitlerHpText">Bitler</p>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="scripts/Country.js"></script>
