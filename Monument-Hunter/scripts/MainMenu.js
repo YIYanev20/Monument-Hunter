@@ -3,12 +3,12 @@ let level = JSON.parse(localStorage.lvl);
 level[0] = 0;
 
 if (level[15] == 0) {
-	$('#continue').removeClass('cname');
-	$('#continue').addClass('disabled').prop('disabled', true);
+	$('#continue').removeClass('option');
+	$('#continue').addClass('disabled2').prop('disabled', true);
 }
 else {
-	$('#continue').removeClass('disabled');
-	$('#continue').addClass('cname');
+	$('#continue').removeClass('disabled2');
+	$('#continue').addClass('option');
 }
 
 $('#continue').on('click' , _ => {

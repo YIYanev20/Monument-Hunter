@@ -3,6 +3,11 @@ body
 	margin: 0px;
 }
 
+a
+{
+	text-decoration: none;
+}
+
 p
 {
 	font-family: Comic Sans MS;
@@ -166,7 +171,7 @@ p
 	background-color: #D1AF7A;
 	border-color: #684E24;
 	margin-top: 8%;
-	margin-left: 3%;
+	margin-left: 7.5%;
 }
 
 .option:hover
@@ -254,6 +259,21 @@ p
 .disabled:hover
 {
 	color: #5096DE;
+}
+
+.disabled2
+{
+	background-color: transparent;
+	border-width: 0px;
+	font-weight: bold;
+	color: #684E24;
+	font-family: Comic Sans MS;
+}
+
+.disabled2:hover
+{
+	background-color: transparent;
+	color: #684E24;
 }
 
 .weap
@@ -422,11 +442,6 @@ p
 	height: 30.3vw;
 }
 
-#credits
-{
-	margin-top: 10%;
-}
-
 #unicorn
 {
 	margin-left: 68vw;
@@ -531,6 +546,30 @@ p
 	background-color: #B28E56;
 }
 
+#continue
+{
+	margin-left: 45.5vw;
+	margin-top: 30vw;
+	font-size: 2vw;
+	position: absolute;
+}
+
+#restart
+{
+	margin-left: 44.3vw;
+	margin-top: 35vw;
+	font-size: 2vw;
+	position: absolute;
+}
+
+#credits
+{
+	margin-left: 45.8vw;
+	margin-top: 40vw;
+	font-size: 2vw;
+	position: absolute;
+}
+
 #roseI
 {
 	width: 5vw;
@@ -583,11 +622,6 @@ p
 #tutW
 {
 	height: 8vw;
-}
-
-#restart
-{
-	margin-top: 5%;
 }
 
 #mainMenu
