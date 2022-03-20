@@ -16,6 +16,7 @@ $('#playerHand').show();
 $('.hpText').hide();
 $('.inText').hide();
 $('.secRow').hide();
+$('#res').hide();
 
 $('.weapText').show();
 $('#default').show();
@@ -75,37 +76,37 @@ switch(level[0])
 		$('#lion').show();
 		$('#LionHpText').show();
 		enemy[1] = 25; // enemy hp
-		hpMult = 2.4;
+		hpMult = 2;
 		break;
 	case 2:
 		$('#flamingo').show();
 		$('#FlamingoHpText').show();
 		enemy[1] = 10;
-		hpMult = 6;
+		hpMult = 5;
 		break;
 	case 3:
 		$('#unicorn').show();
 		$('#UnicornHpText').show();
 		enemy[1] = 20;
-		hpMult = 3;
+		hpMult = 2.5;
 		break;
 	case 4:
 		$('#wolf').show();
 		$('#WolfHpText').show();
 		enemy[1] = 15;
-		hpMult = 4;
+		hpMult = 3.4;
 		break;
 	case 5:
 		$('#bear').show();
 		$('#BearHpText').show();
 		enemy[1] = 35;
-		hpMult = 1.7;
+		hpMult = 0.77;
 		break;
 	case 6:
 		$('#bitler').show();
 		$('#BitlerHpText').show();
 		enemy[1] = 50;
-		hpMult = 1.2;
+		hpMult = 1;
 		break;
 }
 
@@ -142,23 +143,27 @@ function enemyAttack()
 function setPlayerHpBar(h)
 {
 	$('.hpPlayer').hide();
-	if(h < 6)
+	if(h < 1)
+	{
+		$('.hpPlayer').hide();
+	}
+	else if(h < 6)
 	{
 		$('#hp1p').show();
 	}
-	else if(h < 11)
+	else if(h < 12)
 	{
 		$('#hp2p').show();
 	}
-	else if(h < 16)
+	else if(h < 18)
 	{
 		$('#hp3p').show();
 	}
-	else if(h < 21)
+	else if(h < 24)
 	{
 		$('#hp4p').show();
 	}
-	else if(h < 26)
+	else if(h < 30)
 	{
 		$('#hp5p').show();
 	}
@@ -170,10 +175,12 @@ function setPlayerHpBar(h)
 	if(enemy[0] > 0)
 	{
 		enemyAttack();
+		$('#next2').show();
 	}
 	else
 	{
 		$('#hitN').show();
+		$('#next2').show();
 	}
 }
 function dBattle3(b)
@@ -297,23 +304,23 @@ function setEnemyHpBar(h)
 	{
 		$('.hpEnemy').hide();
 	}
-	else if(hp < 11)
+	else if(hp < 10)
 	{
 		$('#hp1e').show();
 	}
-	else if(hp < 21)
+	else if(hp < 20)
 	{
 		$('#hp2e').show();
 	}
-	else if(hp < 31)
+	else if(hp < 30)
 	{
 		$('#hp3e').show();
 	}
-	else if(hp < 41)
+	else if(hp < 40)
 	{
 		$('#hp4e').show();
 	}
-	else if(hp < 51)
+	else if(hp < 50)
 	{
 		$('#hp5e').show();
 	}
@@ -325,10 +332,12 @@ function setEnemyHpBar(h)
 	if(player[0] > 0)
 	{
 		playerAttack();
+		$('#next').show();
 	}
 	else
 	{
 		$('#atkN').show();
+		$('#next').show();
 	}
 }
 function setWeapDmg()
@@ -682,8 +691,8 @@ function afterPlayerAtk()
 		else
 		{
 			$('#eff2').show();
+			$('#next2').show();
 		}
-		$('#next2').show();
 	}
 }
 
@@ -755,8 +764,8 @@ $('#attack').on('click' , _ =>
 	else
 	{
 		$('#eff3').show();
+		$('#next').show();
 	}
-	$('#next').show();
 });
 
 $('#next').on('click' , _ => 
