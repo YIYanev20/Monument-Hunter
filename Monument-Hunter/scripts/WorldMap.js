@@ -44,6 +44,28 @@ function next(a)
 	}
 }
 
+function ifGe()
+{
+	if (level[1] == 6 && level[2] == 6 && level[3] == 6 && level[4] == 6 && level[5] == 6)
+	{
+		$('#ge').removeClass('disabled');
+		$('#ge').addClass('cname');
+	}
+	else
+	{
+		$('#ge').removeClass('cname');
+		$('#ge').addClass('disabled').prop('disabled', true);
+	}
+}
+
+function setGe()
+{
+	level[21] = 1;
+	let lvl = level;
+	localStorage.setItem("lvl", JSON.stringify(lvl));
+	ifGe();
+}
+
 if(level[21] == 0)
 {
 	$('#skip').removeClass('tutorial').addClass('option');
@@ -58,6 +80,7 @@ if(level[21] == 0)
 	$('#objective').hide();
 	$('.disabled').hide();
 }
+ifGe();
 
 $('#next0').on('click', _ => 
 {
@@ -73,32 +96,36 @@ $('#skip').on('click', _ =>
 
 $('#bg').on('click', _ =>
 {
-	level[0] = 1;
-	if (level[1] < 5)
-	{
-		level[1] = level[1] + 1;
-	}
-});
+		level[0] = 1;
+		if (level[1] < 5)
+		{
+			level[1] = level[1] + 1;
+		}
+		setGe();
+	});
 
-if (level[1] > 0 && level[1] < 6)
-{
-	$('#bg').removeClass('cname');
-	$('#bg').addClass('failed');
-}
-else if (level[1] > 5)
-{
-	$('#bg').removeClass('cname');
-	$('#bg').removeClass('failed');
-	$('#bg').addClass('completed').prop('disabled', true);
+	if (level[1] > 0 && level[1] < 6)
+	{
+		$('#bg').removeClass('cname');
+		$('#bg').addClass('failed');
+	}
+	else if (level[1] > 5)
+	{
+		$('#bg').removeClass('cname');
+		$('#bg').removeClass('failed');
+		$('#bg').addClass('completed').prop('disabled', true);
 }
 
 $('#fr').on('click', _ =>
 {
 		level[0] = 2;
-		if (level[2] < 5) {
+		if (level[2] < 5)
+		{
 			level[2] = level[2] + 1;
 		}
+		setGe();
 	});
+
 	if (level[2] > 0 && level[2] < 6)
 	{
 		$('#fr').removeClass('cname');
@@ -114,10 +141,13 @@ $('#fr').on('click', _ =>
 $('#uk').on('click', _ =>
 {
 		level[0] = 3;
-		if (level[3] < 5) {
+		if (level[3] < 5)
+		{
 			level[3] = level[3] + 1;
 		}
+		setGe();
 	});
+
 	if (level[3] > 0 && level[3] < 6)
 	{
 		$('#uk').removeClass('cname');
@@ -137,7 +167,9 @@ $('#it').on('click', _ =>
 		{
 			level[4] = level[4] + 1;
 		}
+		setGe();
 	});
+
 	if (level[4] > 0 && level[4] < 6)
 	{
 		$('#it').removeClass('cname');
@@ -153,10 +185,13 @@ $('#it').on('click', _ =>
 $('#ru').on('click', _ =>
 {
 		level[0] = 5;
-		if (level[5] < 5) {
+		if (level[5] < 5)
+		{
 			level[5] = level[5] + 1;
 		}
+		setGe();
 	});
+
 	if (level[5] > 0 && level[5] < 6)
 	{
 		$('#ru').removeClass('cname');
@@ -169,30 +204,17 @@ $('#ru').on('click', _ =>
 		$('#ru').addClass('completed').prop('disabled', true);
 }
 
-$('#update').on('click', _ =>
-{
-		level[21] = 1;
-		let lvl = level;
-		localStorage.setItem("lvl", JSON.stringify(lvl));
-	});
-	if (level[1] == 6 && level[2] == 6 && level[3] == 6 && level[4] == 6 && level[5] == 6)
-	{
-		$('#ge').removeClass('disabled');
-		$('#ge').addClass('cname');
-	}
-	else
-	{
-		$('#ge').removeClass('cname');
-		$('#ge').addClass('disabled').prop('disabled', true);
-}
-
 $('#ge').on('click', _ =>
 {
 		level[0] = 6;
-		if (level[9] < 5) {
+		if (level[9] < 5)
+		{
 			level[9] = level[9] + 1;
 		}
+		let lvl = level;
+		localStorage.setItem("lvl", JSON.stringify(lvl));
 	});
+
 	if (level[9] > 0 && level[9] < 6)
 	{
 		$('#ge').removeClass('cname');

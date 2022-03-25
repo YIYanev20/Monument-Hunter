@@ -3,7 +3,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body onmousedown="return false">
 
 	<img src="sprites/player.png" class="player" id="playerHand">
 	<img src="sprites/playerRose.png" class="player" id="playerRose">
@@ -128,13 +128,13 @@
 		<button class="option" id="next2">Next</button>
 
 		<button class="option" id="attack">Attack</button>
-		<a href="./WorldMap.html">
-			<button class="option" id="flee">Flee</button>
-			<button class="option" id="proceed">Proceed</button>
-		</a>
+
+		<button onclick="window.open('./WorldMap.html','_self')" class="option" id="flee">Flee</button>
+		<button onclick="window.open('./WorldMap.html','_self')" class="option" id="proceed">Proceed</button>
+		
 		<button class="option" id="weapS">Select weapon</button>
 
-		<a href="LoadingScreen.html"><button class="option" id="res">Finish</button></a>
+		<button onclick="window.open('LoadingScreen.html','_self')" class="option" id="res">Finish</button>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

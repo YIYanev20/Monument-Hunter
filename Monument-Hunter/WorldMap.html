@@ -12,16 +12,16 @@
 		}
 	</style>
 </head>
-<body>
+<body onmousedown="return false">
 	
-	<a href="Country.html" id="update">
-		<button class="cname" id="bg">Bulgaria</button>
-		<button class="cname" id="fr">France</button>
-		<button class="cname" id="uk">UK</button>
-		<button class="cname" id="it">Italy</button>
-		<button class="cname" id="ru">Russia</button>
-		<button class="cname" id="ge">Gemany</button>	
-	</a>
+
+	<button onclick="window.open('Country.html','_self')" class="cname" id="bg">Bulgaria</button>
+	<button onclick="window.open('Country.html','_self')" class="cname" id="fr">France</button>
+	<button onclick="window.open('Country.html','_self')" class="cname" id="uk">UK</button>
+	<button onclick="window.open('Country.html','_self')" class="cname" id="it">Italy</button>
+	<button onclick="window.open('Country.html','_self')" class="cname" id="ru">Russia</button>
+	<button onclick="window.open('Country.html','_self')" class="cname" id="ge">Gemany</button>	
+
 
 	<div class="tutorial" id="darken"></div>
 	<div class="window" id="worldW">
@@ -38,7 +38,7 @@
 		<button class="tutorial" id="skip">Skip</button>
 	</div>
 
-	<a href="MainMenu.html"><button class="cname" id="mainMenu">Main Menu</button></a>
+	<button onclick="window.open('MainMenu.html','_self')" class="cname" id="mainMenu">Main Menu</button>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="scripts/WorldMap.js"></script>

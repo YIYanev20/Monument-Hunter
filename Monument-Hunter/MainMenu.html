@@ -7,13 +7,11 @@
 
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body onmousedown="return false">
 
-	<a href="WorldMap.html">
-		<button class="option" id="continue">Continue</button>
-		<button class="option" id="restart">New Game</button>
-	</a>
-	<a href="Resources.html"><button class="option" id="credits">Credits</button></a>
+	<button onclick="window.open('WorldMap.html','_self')" class="option" id="continue">Continue</button>
+	<button onclick="window.open('WorldMap.html','_self')" class="option" id="restart">New Game</button>
+	<button onclick="window.open('Resources.html','_self')" class="option" id="credits">Credits</button>
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="scripts/MainMenu.js"></script>
