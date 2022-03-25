@@ -27,46 +27,45 @@ $('#hp6p').show();
 $('.hpEnemy').hide();
 $('#hp6e').show();
 
-let player = [0,0,0,0,0];
-let enemy = [0,0,0,0];
-let time = [0,0,0];
+let player = [0,30,0,0]; // [0] = dmg; [1] = hp; [2] = hit amount [3] = turn
+let enemy = [0,0,0,0]; // [0] = dmg; [1] = hp; [2] = dodge amount; [3] = death bool
+let time = [0,0,0]; // [0] = d; [1] = start; [2] = end
 let hpMult;
-player[1] = 30; // player hp
 
 function setPlayer()
 {
 	$('.player').hide();
-	switch(level[14])
+	switch(level[20])
 	{
 	case 0:
 		$('#hand').addClass('current');
 		$("#playerHand").show();
-		level[7] = 2;
+		level[10] = 2;
 		break;
 	case 1:
 		$('#rose').addClass('current');
 		$("#playerRose").show();
-		level[8] = 2;
+		level[11] = 2;
 		break;
 	case 2:
 		$('#bagguette').addClass('current');
 		$("#playerBagguette").show();
-		level[9] = 2;
+		level[12] = 2;
 		break;
 	case 3:
 		$('#tea').addClass('current');
 		$("#playerTea").show();
-		level[10] = 2;
+		level[13] = 2;
 		break;
 	case 4:
 		$('#brush').addClass('current');
 		$("#playerBrush").show();
-		level[11] = 2;
+		level[14] = 2;
 		break;
 	case 5:
 		$('#bottle').addClass('current');
 		$("#playerBottle").show();
-		level[12] = 2;
+		level[15] = 2;
 		break;
 	}
 }
@@ -76,7 +75,7 @@ switch(level[0])
 	case 1:
 		$('#lion').show();
 		$('#LionHpText').show();
-		enemy[1] = 25; // enemy hp
+		enemy[1] = 25;
 		hpMult = 2;
 		break;
 	case 2:
@@ -192,7 +191,7 @@ function dBattle3(b)
 	switch(level[0])
 	{
 		case 1:
-			enemy[0] = 6; // enemy dmg
+			enemy[0] = 6;
 			break;
 		case 2:
 			enemy[0] = 5;
@@ -226,7 +225,7 @@ function dBattle3(b)
 
 	enemy[0] = enemy[0] - enemy[2];
 
-	if (level[14] == 1)
+	if (level[20] == 1)
 	{
 		enemy[0]--;
 		$('#eff1').show();
@@ -267,7 +266,7 @@ $('#dBtn').on('click' , _ =>
 
 function playerAttack()
 {
-	switch(level[14])
+	switch(level[20])
 	{
 	case 0:
 		$('#atk0').show();
@@ -342,7 +341,7 @@ function setEnemyHpBar(h)
 }
 function setWeapDmg()
 {
-	switch(level[14])
+	switch(level[20])
 	{
 		case 0:
 			player[0] = 3;
@@ -358,7 +357,7 @@ function setWeapDmg()
 			break;
 		case 4:
 			player[0] = 4;
-			if(player[2] % 2 == 0)
+			if(player[3] % 2 == 0)
 			{
 				player[0] = 9;
 				$('#eff4').show();
@@ -368,7 +367,7 @@ function setWeapDmg()
 			player[0] = 8;
 			break;
 	}
-	player[0] = player[0] - player[3];
+	player[0] = player[0] - player[2];
 
 	enemy[1] = enemy[1] - player[0];
 	setEnemyHpBar(enemy[1]);
@@ -377,114 +376,114 @@ function aBattle3(b)
 {
 	$('.atk').hide();
 	$('#action').removeClass('barW').addClass('actionW');
-	switch(level[14])
+	switch(level[20])
 	{
 		case 0:
 			if(b == 1)
 			{
-				player[3] = 6;
+				player[2] = 6;
 			}
 			else if(b == 2 || b == 3)
 			{
-				player[3] = 4;
+				player[2] = 4;
 			}
 			else if(b == 4)
 			{
-				player[3] = 2;
+				player[2] = 2;
 			}
 			else
 			{
-				player[3] = 0;
+				player[2] = 0;
 			}
 			break;
 		case 1:
 			if(b == 1)
 			{
-				player[3] = 6;
+				player[2] = 6;
 			}
 			else if(b == 2 || b == 3)
 			{
-				player[3] = 4;
+				player[2] = 4;
 			}
 			else if(b == 4)
 			{
-				player[3] = 2;
+				player[2] = 2;
 			}
 			else
 			{
-				player[3] = 0;
+				player[2] = 0;
 			}
 			break;
 		case 2:
 			if(b == 1)
 			{
-				player[3] = 5;
+				player[2] = 5;
 			}
 			else if(b == 2 || b == 3)
 			{
-				player[3] = 3;
+				player[2] = 3;
 			}
 			else if(b == 4)
 			{
-				player[3] = 1;
+				player[2] = 1;
 			}
 			else
 			{
-				player[3] = 0;
+				player[2] = 0;
 			}
 			break;
 		case 3:
 			if(b == 1)
 			{
-				player[3] = 7;
+				player[2] = 7;
 			}
 			else if(b == 2 || b == 3)
 			{
-				player[3] = 5;
+				player[2] = 5;
 			}
 			else if(b == 4)
 			{
-				player[3] = 2;
+				player[2] = 2;
 			}
 			else
 			{
-				player[3] = 0;
+				player[2] = 0;
 			}
 			break;
 		case 4:
 			if(b == 1)
 			{
-				player[3] = 4;
+				player[2] = 4;
 			}
 			else if(b == 2 || b == 3)
 			{
-				player[3] = 2;
+				player[2] = 2;
 			}
 			else if(b == 4)
 			{
-				player[3] = 1;
+				player[2] = 1;
 			}
 			else
 			{
-				player[3] = 0;
+				player[2] = 0;
 			}
 			break;
 		case 5:
 			if(b == 1)
 			{
-				player[3] = 8;
+				player[2] = 8;
 			}
 			else if(b == 2 || b == 3)
 			{
-				player[3] = 6;
+				player[2] = 6;
 			}
 			else if(b == 4)
 			{
-				player[3] = 3;
+				player[2] = 3;
 			}
 			else
 			{
-				player[3] = 0;
+				player[2] = 0;
 			}
 			break;
 	}
@@ -532,62 +531,62 @@ $('#aBtn').on('click' , _ =>
 
 function setInventory()
 {
-	if(level[7] == 1)
+	if(level[10] == 1)
 	{		
 		$('#hand').addClass('weap');
 		$('#hand').children().show();
 	}
 
-	if(level[8] == 1)
+	if(level[11] == 1)
 	{		
 		$('#rose').addClass('weap');
 		$('#rose').children().show();
 	}
-	else if (level[8] == 0)
+	else if (level[11] == 0)
 	{
 		$('#rose').addClass('noWeap');
 		$('#rose').children().hide();
 	}
 
-	if(level[9] == 1)
+	if(level[12] == 1)
 	{
 		$('#bagguette').addClass('weap');
 		$('#bagguette').children().show();
 	}
-	else if (level[9] == 0)
+	else if (level[12] == 0)
 	{
 		$('#bagguette').addClass('noWeap');
 		$('#bagguette').children().hide();
 	}
 
-	if(level[10] == 1)
+	if(level[13] == 1)
 	{
 		$('#tea').addClass('weap');
 		$('#tea').children().show();
 	}
-	else if (level[10] == 0)
+	else if (level[13] == 0)
 	{
 		$('#tea').addClass('noWeap');
 		$('#tea').children().hide();
 	}
 
-	if(level[11] == 1)
+	if(level[14] == 1)
 	{
 		$('#brush').addClass('weap');
 		$('#brush').children().show();
 	}
-	else if (level[11] == 0)
+	else if (level[14] == 0)
 	{
 		$('#brush').addClass('noWeap');
 		$('#brush').children().hide();
 	}
 
-	if(level[12] == 1)
+	if(level[15] == 1)
 	{
 		$('#bottle').addClass('weap');
 		$('#bottle').children().show();
 	}
-	else if (level[12] == 0)
+	else if (level[15] == 0)
 	{
 		$('#bottle').addClass('noWeap');
 		$('#bottle').children().hide();
@@ -616,15 +615,16 @@ function setCurrent(a)
 	$('#brush').removeClass('current');
 	$('#bottle').removeClass('current');
 
-	let n = level[14] + 7;
-	level[n] = level[13];
-	level[14] = a;
+	let n = level[20] + 7;
+	level[n] = level[19];
+	level[20] = a;
 	
 	setPlayer();
 	setInventory();
 
 	if(enemy[3] == 1)
 	{
+		localStorage.clear();
 		let lvl = level;
 		localStorage.setItem("lvl", JSON.stringify(lvl));
 	}
@@ -641,7 +641,7 @@ function afterComplete()
 	let m = level[0] + 7;
 	level[m] = 1;
 	enemy[3] = 1;
-	setCurrent(level[14]);
+	setCurrent(level[20]);
 }
 function afterEnemyAtk()
 {
@@ -692,7 +692,7 @@ function afterPlayerAtk()
 	}
 	else
 	{
-		if(player[2] % 3 == 0 && level[14] == 2)
+		if(player[3] % 3 == 0 && level[20] == 2)
 		{			
 			$('#eff2').show();
 			$('#next2').show();
@@ -707,7 +707,7 @@ function afterPlayerAtk()
 $('#weapS').on('click' , _ =>
 {
 	$('#weapW').show();
-	setCurrent(level[14]);
+	setCurrent(level[20]);
 });
 
 $('#hand').on('click' , _ =>
@@ -717,7 +717,7 @@ $('#hand').on('click' , _ =>
 });
 $('#rose').on('click' , _ =>
 {
-	if(level[8] > 0)
+	if(level[11] > 0)
 	{
 		setCurrent(1)
 		$('#weapW').hide();
@@ -725,7 +725,7 @@ $('#rose').on('click' , _ =>
 });
 $('#bagguette').on('click' , _ =>
 {
-	if(level[9] > 0)
+	if(level[12] > 0)
 	{
 		setCurrent(2)
 		$('#weapW').hide();
@@ -733,7 +733,7 @@ $('#bagguette').on('click' , _ =>
 });
 $('#tea').on('click' , _ =>
 {
-	if(level[10] > 0)
+	if(level[13] > 0)
 	{
 		setCurrent(3)
 		$('#weapW').hide();
@@ -741,7 +741,7 @@ $('#tea').on('click' , _ =>
 });
 $('#brush').on('click' , _ =>
 {
-	if(level[11] > 0)
+	if(level[14] > 0)
 	{
 		setCurrent(4)
 		$('#weapW').hide();
@@ -749,7 +749,7 @@ $('#brush').on('click' , _ =>
 });
 $('#bottle').on('click' , _ =>
 {
-	if(level[12] > 0)
+	if(level[15] > 0)
 	{
 		setCurrent(5)
 		$('#weapW').hide();
@@ -763,9 +763,9 @@ $('#attack').on('click' , _ =>
 	$('#flee').hide();
 	$('#weapS').hide();
 	$('.inText').hide();
-	player[2]++;
+	player[3]++;
 
-	if(player[2] % 4 == 0 && level[14] == 3)
+	if(player[3] % 4 == 0 && level[20] == 3)
 	{		
 		$('#eff3').show();
 		$('#next').show();
