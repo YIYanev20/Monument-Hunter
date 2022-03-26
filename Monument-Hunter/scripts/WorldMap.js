@@ -46,7 +46,7 @@ function next(a)
 
 function ifGe()
 {
-	if (level[1] == 6 && level[2] == 6 && level[3] == 6 && level[4] == 6 && level[5] == 6)
+	if (level[22] > 3)
 	{
 		$('#ge').removeClass('disabled');
 		$('#ge').addClass('cname');

@@ -28,50 +28,15 @@ p
 }
 @keyframes enemyAn
 {
-	0%
-	{
-		transform: translateX(0%);
-	}
-
-	12.5%
-	{
-		transform: translateX(50%);
-	}
-
-	25%
-	{
-		transform: translateX(-45%);
-	}
-
-	37.5%
-	{
-		transform: translateX(35%);
-	}
-
-	50%
-	{
-		transform: translateX(-30%);
-	}
-
-	62.5%
-	{
-		transform: translateX(20%);
-	}
-
-	75%
-	{
-		transform: translateX(-15%);
-	}
-
-	87.5%
-	{
-		transform: translateX(5%);
-	}
-
-	100%
-	{
-		transform: translateX(0%);
-	}
+	0%{transform: translateX(0%);}
+	12.5%{transform: translateX(50%);}
+	25%{transform: translateX(-45%);}
+	37.5%{transform: translateX(35%);}
+	50%{transform: translateX(-30%);}
+	62.5%{transform: translateX(20%);}
+	75%{transform: translateX(-15%);}
+	87.5%{transform: translateX(5%);}
+	100%{transform: translateX(0%);}
 }
 
 .playerHit
@@ -84,50 +49,15 @@ p
 }
 @keyframes playerAn
 {
-	0%
-	{
-		transform: translateX(0%);
-	}
-
-	12.5%
-	{
-		transform: translateX(50%);
-	}
-
-	25%
-	{
-		transform: translateX(-45%);
-	}
-
-	37.5%
-	{
-		transform: translateX(35%);
-	}
-
-	50%
-	{
-		transform: translateX(-30%);
-	}
-
-	62.5%
-	{
-		transform: translateX(20%);
-	}
-
-	75%
-	{
-		transform: translateX(-15%);
-	}
-
-	87.5%
-	{
-		transform: translateX(5%);
-	}
-
-	100%
-	{
-		transform: translateX(0%);
-	}
+	0%{transform: translateX(0%);}
+	12.5%{transform: translateX(50%);}
+	25%{transform: translateX(-45%);}
+	37.5%{transform: translateX(35%);}
+	50%{transform: translateX(-30%);}
+	62.5%{transform: translateX(20%);}
+	75%{transform: translateX(-15%);}
+	87.5%{transform: translateX(5%);}
+	100%{transform: translateX(0%);}
 }
 
 .move
@@ -136,15 +66,23 @@ p
 }
 @keyframes markAn
 {
-	from
-	{
-		transform: translateX(0%);
-	}
+	from{transform: translateX(0%);}
+	to{transform: translateX(7150%);}
+}
 
-	to
-	{
-		transform: translateX(7150%);
-	}
+.btnAn
+{
+	background-color: transparent;
+	border-width: 0px;
+	font-weight: bold;
+	color: #684E24;
+	font-family: Comic Sans MS;
+	animation: btnAnAn 1s linear forwards;
+}
+@keyframes btnAnAn
+{
+	from{opacity: 0;}
+	to{opacity: 1;}
 }
 
 .weapText
@@ -735,10 +673,10 @@ p
 
 #BITler
 {
-	height: ;
-	width: ;
-	margin-left: 80vw;
-	margin-top: 5vw;
+	height: 30vw;
+	width: 23vw;
+	margin-left: 76vw;
+	margin-top: 1vw;
 }
 
 #bg

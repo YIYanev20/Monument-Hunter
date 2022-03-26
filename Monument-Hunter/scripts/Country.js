@@ -615,7 +615,7 @@ function setCurrent(a)
 	$('#brush').removeClass('current');
 	$('#bottle').removeClass('current');
 
-	let n = level[20] + 7;
+	let n = level[20] + 10;
 	level[n] = level[19];
 	level[20] = a;
 	
@@ -630,19 +630,6 @@ function setCurrent(a)
 	}
 }
 
-function afterComplete()
-{
-	$('#proceed').show();
-	$('#weapW').show();
-	$('.weapText').show();
-	$('#congrats').show();
-
-	level[level[0]] = 6
-	let m = level[0] + 7;
-	level[m] = 1;
-	enemy[3] = 1;
-	setCurrent(level[20]);
-}
 function afterEnemyAtk()
 {
 	$('.inText').hide();
@@ -684,10 +671,22 @@ function afterPlayerAtk()
 		{
 			$('#win').show();
 			$('#res').show();
+			level[21] = 0;
+			level[23] = 0;
 		}
 		else
 		{
-			afterComplete();
+			$('#proceed').show();
+			$('#weapW').show();
+			$('.weapText').show();
+			$('#congrats').show();
+
+			level[level[0]] = 6;
+			level[22]++;
+			let m = level[0] + 10;
+			level[m] = 1;
+			enemy[3] = 1;
+			setCurrent(level[20]);
 		}
 	}
 	else

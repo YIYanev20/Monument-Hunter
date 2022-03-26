@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<style>body{background: url(images/background.png) no-repeat left top; background-size: 100%;}</style>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="scripts/Country.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
-
-	<style>
-		body{background: url(images/background.png) no-repeat left top; background-size: 100%;}
-	</style>
 </head>
 <body onmousedown="return false">
 
@@ -51,7 +50,6 @@
 			<img src="sprites/hand.png" class="item"></img>
 			<p class="weapText">Name: Hand</p>
 			<p class="weapText" id="srow">Max DMG: 3</p>
-			<div class="clickArea"></div>
 		</div>
 		<div id="rose">
 			<img src="sprites/rose.png" class="item" id="roseI"></img>
@@ -140,9 +138,6 @@
 
 		<button onclick="window.open('LoadingScreen.html','_self')" class="option" id="res">Finish</button>
 	</div>
-
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="scripts/Country.js"></script>
 
 </body>
 </html>
